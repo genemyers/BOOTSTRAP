@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>v3 Signature Harmonica Tuner</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+           <a href="#" class="navbar-brand">
+              <img src="images/signature.gif" height="35" alt="Signature Harmonica Tuner">
+            </a>
+            <div class="me-auto p-4">Welcome, <span id='username'>Gene Myers</span></div> <!-- if you change this to ms-auto it moves to the right on collapse -->
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ms-5 ps-5" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="#" class="nav-item nav-link active" onclick="alert('Capture')">Capture</a>
+                    <a href="#" class="nav-item nav-link">Harmonicas</a>
+                    <a href="#" class="nav-item nav-link">Tunings</a>
+                    <a href="#" class="nav-item nav-link">History</a>
+                    <a href="#" class="nav-item nav-link">Settings</a>
+                    <a href="#" class="nav-item nav-link">Profile</a>
+                    <a href="#" class="nav-item nav-link">Help</a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <a href="#" class="nav-item nav-link">Logout</a>
+                </div>
+            </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid" id="capturescreen">
+      <div class="row mt-5">
+        <div class="col"></div>
+        <div class="col text-center"> <!-- justify-content-center text-center  -->
+
+              <button type="button" class="btn btn-secondary"><span class="fa fa-plus"></span></button>&nbsp;&nbsp;
+              <!-- fs is for Font Size -->
+              <span class="dropdown-toggle fs-4" data-bs-toggle="dropdown">My Special 20 Set : <span class="fst-italic">Richter 10-Hole Diatonic</span></span>
+              <div class="dropdown-menu dropdown-menu-end">
+                  <span class="dropdown-item">My Seydel Set- Richter 10-Hole Diatonic</span>
+                  <span  class="dropdown-item">My Hohner 364 Set- Richter 12-Hole Diatonic</span>
+              </div>
+              <!-- <span class="fs-5 fw-bold">Key of </span> -->
+              <span class="dropdown-toggle fs-4 ms-2" data-bs-toggle="dropdown">C</span>
+              <div class="dropdown-menu dropdown-menu-end">
+                  <span class="dropdown-item">A</span>
+                  <span class="dropdown-item">B</span>
+              </div>
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="row mt-5">
+        <div class="col"></div>
+        <div class="col text-center"> <!-- justify-content-center text-center  -->
+
+              <button type="button" class="btn btn-secondary"><span class="fa fa-refresh pe-2"></span>Reset</button>
+              <button type="button" class="btn btn-secondary ms-3"><span class="fa fa-play pe-2"></span>Start</button>
+
+        </div>
+        <div class="col"></div>
+      </div>
+    </div> <!-- end of "capturescreen" -->
+
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
