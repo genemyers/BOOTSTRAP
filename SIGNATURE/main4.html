@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>v3 Signature Harmonica Tuner</title>
+    <title>v4 Signature Harmonica Tuner</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,19 +17,28 @@
             bottom   : 0;
           }
           .fixed{
-              width: 40px;
+              width: 65px;
+              height: 200px;
           }
-          .halves{
-              width: 480px;
+          .edge{
+              width: 169px;
+              height: 200px;
           }
-
+          .cover {
+            width: 65px;
+            height: 40px;
+          }
+          .hole{
+            width: 65px;
+            height: 120px;
+          }
     </style>
 </head>
 <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
            <a href="#" class="navbar-brand">
-              <img src="images/signature.gif" height="35" alt="Signature Harmonica Tuner">
+              <img src="images/signature3.gif" height="35" alt="Signature Harmonica Tuner">
             </a>
             <div class="me-auto p-4">Welcome, <span id='username'>Gene Myers</span></div> <!-- if you change this to ms-auto it moves to the right on collapse -->
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -86,36 +95,36 @@
       </div>
 
       <div class="row mt-5">
-        <div class="col-4 border">left</div>
-        <div class="col-4 border"> <!-- justify-content-center text-center  -->
+        <div class="col-4"></div>
+        <div class="col-4"> <!-- justify-content-center text-center  -->
              <div class="row">
-               <div class="col-6 border">test1</div>
-               <div class="col-6 text-center border">test2</div>
+               <div class="col-6 border fs-5">Expected</div>
+               <div class="col-6 text-center  border fs-5">C</div>
            </div>
         </div>
-        <div class="col-4 border">right</div>
+        <div class="col-4"></div>
       </div>
 
       <div class="row mt-2">
-        <div class="col-4 border">left</div>
-        <div class="col-4 border"> <!-- justify-content-center text-center  -->
+        <div class="col-4"></div>
+        <div class="col-4 "> <!-- justify-content-center text-center  -->
              <div class="row">
-               <div class="col-6 border">test1</div>
+               <div class="col-6 border fs-5">Played</div>
                <div class="col-6 text-center border">test2</div>
            </div>
         </div>
-        <div class="col-4 border">right</div>
+        <div class="col-4"></div>
       </div>
 
-      <div class="container-fluid" id="harp">
+      <div class="container-fluid mt-5" id="harp">
           <div class="harpscroll">
               <div class="row mt-5 flex-nowrap">
 
-                <div class="col border"></div>
+                <div class="col"></div>
 
-                <div class="col border"> <!-- justify-content-center text-center  -->
+                <div class="col"> <!-- justify-content-center text-center  -->
                          <div class="row flex-nowrap"> <!-- flex-nowrap -->
-                             <div class="fixed border"> <!-- col instead of fixed -->
+                      <!--       <div class="fixed border">
                                 <div class="row border">1
                                 </div>
                                 <div class="row border">1
@@ -164,99 +173,99 @@
                                </div>
                              </div>
                              <div class="fixed border">
-                               <div class="row border">7
+                               <div class="row cover border">7
                                </div>
-                               <div class="row border">7
+                               <div class="row hole border">7
                                </div>
-                               <div class="row border">7
+                               <div class="row cover border">7
                                </div>
-                             </div>
-                             <div class="fixed border">
-                               <div class="row border">8
+                             </div> -->
+                             <div class="edge" style="background-image: url('images/diatonic-left.png');">
+                               <div class="row cover float-end ps-4 pt-3">1
                                </div>
-                               <div class="row border">8
+                               <div class="row hole">
                                </div>
-                               <div class="row border">8
-                               </div>
-                             </div>
-                             <div class="fixed border">
-                               <div class="row border">9
-                               </div>
-                               <div class="row border">9
-                               </div>
-                               <div class="row border">9
+                               <div class="row cover">
                                </div>
                              </div>
-                             <div class="fixed border">
-                               <div class="row border">10
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover ps-4 pt-3">2
                                </div>
-                               <div class="row border">10
+                               <div class="row hole" style="background-image: url('images/up-block.gif');">
                                </div>
-                               <div class="row border">10
-                               </div>
-                             </div>
-                             <div class="fixed border">
-                               <div class="row border">11
-                               </div>
-                               <div class="row border">11
-                               </div>
-                               <div class="row border">11
+                               <div class="row cover">
                                </div>
                              </div>
-                             <div class="fixed border">
-                               <div class="row border">12
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover ps-4 pt-3">3
                                </div>
-                               <div class="row border">12
+                               <div class="row hole" style="background-image: url('images/down-block.gif');">
                                </div>
-                               <div class="row border">12
-                               </div>
-                             </div>
-                             <div class="fixed border">
-                               <div class="row border">13
-                               </div>
-                               <div class="row border">13
-                               </div>
-                               <div class="row border">13
+                               <div class="row cover">
                                </div>
                              </div>
-                             <div class="fixed border">
-                               <div class="row border">14
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover ps-4 pt-3">4
                                </div>
-                               <div class="row border">14
+                               <div class="row hole">
                                </div>
-                               <div class="row border">14
-                               </div>
-                             </div>
-                             <div class="fixed border">
-                               <div class="row border">15
-                               </div>
-                               <div class="row border">15
-                               </div>
-                               <div class="row border">15
+                               <div class="row cover">
                                </div>
                              </div>
-                             <div class="fixed border">
-                               <div class="row border">16
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover ps-4 pt-3">5
                                </div>
-                               <div class="row border">16
+                               <div class="row hole">
                                </div>
-                               <div class="row border">16
-                               </div>
-                             </div>
-                             <div class="fixed border">
-                               <div class="row border">17
-                               </div>
-                               <div class="row border">17
-                               </div>
-                               <div class="row border">17
+                               <div class="row cover">
                                </div>
                              </div>
-                             <div class="fixed border">
-                               <div class="row border">18
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover ps-4 pt-3">6
                                </div>
-                               <div class="row border">18
+                               <div class="row hole">
                                </div>
-                               <div class="row border">18
+                               <div class="row cover">
+                               </div>
+                             </div>
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover ps-4 pt-3">7
+                               </div>
+                               <div class="row hole">
+                               </div>
+                               <div class="row cover">
+                               </div>
+                             </div>
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover ps-4 pt-3">8
+                               </div>
+                               <div class="row holr">
+                               </div>
+                               <div class="row cover">
+                               </div>
+                             </div>
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover ps-4 pt-3">9
+                               </div>
+                               <div class="row hole">
+                               </div>
+                               <div class="row cover">
+                               </div>
+                             </div>
+                             <div class="edge" style="background-image: url('images/diatonic-right.png');">
+                               <div class="row cover ps-4 pt-3">10
+                               </div>
+                               <div class="row hole">
+                               </div>
+                               <div class="row cover">
+                               </div>
+                             </div>
+                    <!--         <div class="fixed border">
+                               <div class="row cover border">18
+                               </div>
+                               <div class="row hole border">18
+                               </div>
+                               <div class="row cover border">18
                                </div>
                              </div>
                              <div class="fixed border">
@@ -306,11 +315,11 @@
                                </div>
                                <div class="row border">24
                                </div>
-                             </div>
+                             </div> -->
                          </div>
                        </div>
 
-                <div class="col border"></div>
+                <div class="col"></div>
 
             </div> <!-- end of row -->
         </div> <!-- end of harpscroll -->
