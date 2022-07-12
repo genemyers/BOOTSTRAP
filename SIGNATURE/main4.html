@@ -377,7 +377,52 @@
   <div class="container-fluid" > <!-- -->
     <div class="row">
       <div class="col-6 border">.col-6</div>
+      <div class="col-6 border">Harmonicas</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="hidden" id="tuningsscreen">
+  <div class="container-fluid" > <!-- -->
+    <div class="row">
       <div class="col-6 border">.col-6</div>
+      <div class="col-6 border">Tunings</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="hidden" id="historyscreen">
+  <div class="container-fluid" > <!-- -->
+    <div class="row">
+      <div class="col-6 border">.col-6</div>
+      <div class="col-6 border">History</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="hidden" id="settingsscreen">
+  <div class="container-fluid" > <!-- -->
+    <div class="row">
+      <div class="col-6 border">.col-6</div>
+      <div class="col-6 border">Settings</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="hidden" id="profilescreen">
+  <div class="container-fluid" > <!-- -->
+    <div class="row">
+      <div class="col-6 border">.col-6</div>
+      <div class="col-6 border">Profile</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="hidden" id="helpscreen">
+  <div class="container-fluid" > <!-- -->
+    <div class="row">
+      <div class="col-6 border">.col-6</div>
+      <div class="col-6 border">Help</div>
     </div>
   </div>
   </div>
@@ -397,6 +442,8 @@
        //alert(target.id)
        target.classList.remove("hidden");
        target.classList.add("shown");
+
+       document.title = source.id;
     }
     </script>
 </body>
