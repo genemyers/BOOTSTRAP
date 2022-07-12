@@ -32,6 +32,12 @@
             width: 65px;
             height: 120px;
           }
+          .hidden {
+            display: none;
+          }
+          .shown {
+            display: block;
+          }
     </style>
 </head>
 <body>
@@ -46,13 +52,13 @@
             </button>
             <div class="collapse navbar-collapse ms-5 ps-5" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
-                    <a href="#" class="nav-item nav-link active" onclick="alert('Capture')">Capture</a>
-                    <a href="#" class="nav-item nav-link">Harmonicas</a>
-                    <a href="#" class="nav-item nav-link">Tunings</a>
-                    <a href="#" class="nav-item nav-link">History</a>
-                    <a href="#" class="nav-item nav-link">Settings</a>
-                    <a href="#" class="nav-item nav-link">Profile</a>
-                    <a href="#" class="nav-item nav-link">Help</a>
+                    <a href="#" class="nav-item nav-link active" id="capture" onclick="showPage(this)">Capture</a>
+                    <a href="#" class="nav-item nav-link" id="harmonicas" onclick="showPage(this)">Harmonicas</a>
+                    <a href="#" class="nav-item nav-link" id="tunings" onclick="showPage(this)">Tunings</a>
+                    <a href="#" class="nav-item nav-link" id="history" onclick="showPage(this)">History</a>
+                    <a href="#" class="nav-item nav-link" id="settings" onclick="showPage(this)">Settings</a>
+                    <a href="#" class="nav-item nav-link" id="profile" onclick="showPage(this)">Profile</a>
+                    <a href="#" class="nav-item nav-link" id="help" onclick="showPage(this)">Help</a>
                 </div>
                 <div class="navbar-nav ms-auto">
                     <a href="#" class="nav-item nav-link">Logout</a>
@@ -61,7 +67,8 @@
       </div>
     </nav>
 
-    <div class="container-fluid" id="capturescreen">
+    <div class="shown" id="capturescreen">
+    <div class="container-fluid">
       <div class="row mt-5">
         <div class="col"></div>
         <div class="col text-center"> <!-- justify-content-center text-center  -->
@@ -81,49 +88,55 @@
               </div>
         </div>
         <div class="col"></div>
-      </div>
+      </div> <!-- end of row -->
+    </div> <!-- end of container-fluid -->
 
+    <div class="container">
       <div class="row mt-5">
         <div class="col"></div>
         <div class="col text-center"> <!-- justify-content-center text-center  -->
-
+            <div class="btn-group">
               <button type="button" class="btn rounded-pill shadow btn-outline-primary"><span class="fa fa-refresh pe-2"></span>Reset</button>
               <button type="button" class="btn rounded-pill shadow btn-outline-primary ms-3"><span class="fa fa-play pe-2"></span>Start</button>
-
+            </div>
         </div>
         <div class="col"></div>
       </div>
 
       <div class="row mt-5">
-        <div class="col-4"></div>
-        <div class="col-4"> <!-- justify-content-center text-center  -->
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4"> <!-- justify-content-center text-center  -->
              <div class="row">
-               <div class="col-6 border fs-5">Expected</div>
-               <div class="col-6 text-center  border fs-5">C</div>
+               <div class="col-4 fs-4 fw-bold text-end">Expected:</div>
+               <div class="col-4 text-center fs-2 ps-4 fw-bold text-primary">C<sub style="font-size: 8px;">4</sub></div>
+               <div class="col-4"></div>
            </div>
         </div>
-        <div class="col-4"></div>
+        <div class="col-lg-4"></div>
       </div>
 
       <div class="row mt-2">
-        <div class="col-4"></div>
-        <div class="col-4 "> <!-- justify-content-center text-center  -->
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4"> <!-- justify-content-center text-center  -->
              <div class="row">
-               <div class="col-6 border fs-5">Played</div>
-               <div class="col-6 text-center border">test2</div>
+               <div class="col-4 fs-4 fw-bold text-end">Played:</div>
+               <div class="col-4 text-center"><img src="images/extra/played-sm.png"></div>
+               <div class="col-4"></div>
            </div>
         </div>
-        <div class="col-4"></div>
+        <div class="col-lg-4"></div>
       </div>
+    </div> <!-- end of container -->
 
-      <div class="container-fluid mt-5" id="harp">
+
+      <div class="container-fluid mt-5">
           <div class="harpscroll">
               <div class="row mt-5 flex-nowrap">
 
                 <div class="col"></div>
 
                 <div class="col"> <!-- justify-content-center text-center  -->
-                         <div class="row flex-nowrap"> <!-- flex-nowrap -->
+                         <div class="row flex-nowrap" id="harp"> <!-- flex-nowrap -->
                       <!--       <div class="fixed border">
                                 <div class="row border">1
                                 </div>
@@ -183,12 +196,12 @@
                              <div class="edge" style="background-image: url('images/diatonic-left.png');">
                                <div class="float-end"> <!-- wrap in float-end -->
                                  <div class="row cover">
-                                    <div class="col text-center my-auto">1</div>
+                                    <div class="col text-center my-auto"><img src="images/check.png" alt="OK" width="24" height="20"/></div>
                                  </div>
                                  <div class="row hole" style="background-image: url('images/down-block.gif');">
                                  </div>
                                  <div class="row cover">
-                                   <div class="col text-center my-auto">1</div>
+                                   <div class="col text-center my-auto"><img src="images/check.png" alt="OK" width="24" height="20"/></div>
                                  </div>
                                </div>
                              </div>
@@ -199,7 +212,7 @@
                                <div class="row hole" style="background-image: url('images/up-block.gif');"> -->
                                </div>
                                <div class="row cover">
-                                 <div class="col text-center my-auto">2</div>
+                                 <div class="col text-center my-auto"></div>
                                </div>
                              </div>
                              <div class="fixed" style="background-image: url('images/diatonic-center.png');">
@@ -209,7 +222,7 @@
                                <div class="row hole" style="background-image: url('images/down-block.gif');">
                                </div>
                                <div class="row cover">
-                                 <div class="col text-center my-auto">3</div>
+                                 <div class="col text-center my-auto"></div>
                                </div>
                              </div>
                              <div class="fixed" style="background-image: url('images/diatonic-center.png');">
@@ -219,7 +232,7 @@
                                <div class="row hole">
                                </div>
                                <div class="row cover">
-                                 <div class="col text-center my-auto">4</div>
+                                 <div class="col text-center my-auto"></div>
                                </div>
                              </div>
                              <div class="fixed" style="background-image: url('images/diatonic-center.png');">
@@ -229,7 +242,7 @@
                                <div class="row hole">
                                </div>
                                <div class="row cover">
-                                 <div class="col text-center my-auto">5</div>
+                                 <div class="col text-center my-auto"></div>
                                </div>
                              </div>
                              <div class="fixed" style="background-image: url('images/diatonic-center.png');">
@@ -239,7 +252,7 @@
                                <div class="row hole">
                                </div>
                                <div class="row cover">
-                                 <div class="col text-center my-auto">6</div>
+                                 <div class="col text-center my-auto"></div>
                                </div>
                              </div>
                              <div class="fixed" style="background-image: url('images/diatonic-center.png');">
@@ -249,7 +262,7 @@
                                <div class="row hole">
                                </div>
                                <div class="row cover">
-                                 <div class="col text-center my-auto">7</div>
+                                 <div class="col text-center my-auto"></div>
                                </div>
                              </div>
                              <div class="fixed" style="background-image: url('images/diatonic-center.png');">
@@ -259,7 +272,7 @@
                                <div class="row hole">
                                </div>
                                <div class="row cover">
-                                 <div class="col text-center my-auto">8</div>
+                                 <div class="col text-center my-auto"></div>
                                </div>
                              </div>
                              <div class="fixed" style="background-image: url('images/diatonic-center.png');">
@@ -269,7 +282,7 @@
                                <div class="row hole">
                                </div>
                                <div class="row cover">
-                                 <div class="col text-center my-auto">9</div>
+                                 <div class="col text-center my-auto"></div>
                                </div>
                              </div>
                              <div class="edge" style="background-image: url('images/diatonic-right.png');">
@@ -280,7 +293,7 @@
                                  <div class="row hole">
                                  </div>
                                  <div class="row cover">
-                                   <div class="col text-center my-auto">10</div>
+                                   <div class="col text-center my-auto"></div>
                                  </div>
                                </div>
                              </div>
@@ -350,14 +363,41 @@
     </div> <!-- end of harp container -->
 
 
-    <div class="container-fluid text-center freq-bars border">
-       <p>Freq Bars</p>
+    <div class="container-fluid freq-bars">
+      <div class="row">
+        <div class="col"><img src="images/extra/freq-bars.png" style="width: 100%;"/></div>
+      </div>
     </div>
 
-    </div> <!-- end of "capturescreen" -->
+  </div> <!-- end of "capture" container??? -->
+</div>  <!-- end of "capturescreen"  -->
 
+  <!-- for demo -->
+  <div class="hidden" id="harmonicasscreen">
+  <div class="container-fluid" > <!-- -->
+    <div class="row">
+      <div class="col-6 border">.col-6</div>
+      <div class="col-6 border">.col-6</div>
+    </div>
+  </div>
+  </div>
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+    function showPage(source) {
+      //alert(source.id)
+      var visible = document.getElementsByClassName("shown")[0];
+      //alert(visible.id)
+       visible.classList.remove("shown");
+       //alert(visible.classList)
+       visible.classList.add("hidden");
+       //alert(visible.classList)
+       var target = document.getElementById(source.id+"screen");
+       //alert(target.id)
+       target.classList.remove("hidden");
+       target.classList.add("shown");
+    }
+    </script>
 </body>
 </html>
