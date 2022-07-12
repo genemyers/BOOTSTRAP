@@ -3,27 +3,62 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Signature Harmonica Tuner</title>
+    <title>v4 Signature Harmonica Tuner</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+          .harpscroll {
+            white-space: nowrap;
+            overflow-x: auto;
+          }
+          .freq-bars {
+            position : absolute;
+            bottom   : 0;
+          }
+          .fixed{
+              width: 65px;
+              height: 200px;
+          }
+          .edge{
+              width: 169px;
+              height: 200px;
+          }
+          .cover {
+            width: 65px;
+            height: 40px;
+          }
+          .hole{
+            width: 65px;
+            height: 120px;
+          }
+          .hidden {
+            display: none;
+          }
+          .shown {
+            display: block;
+          }
+    </style>
 </head>
 <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
            <a href="#" class="navbar-brand">
-              <img src="images/signature.gif" height="35" alt="Signature Harmonica Tuner">
+              <img src="images/signature3.gif" height="35" alt="Signature Harmonica Tuner">
             </a>
+            <div class="me-auto p-4">Welcome, <span id='username'>Gene Myers</span></div> <!-- if you change this to ms-auto it moves to the right on collapse -->
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav">
-                    <a href="#" class="nav-item nav-link active">Capture</a>
-                    <a href="#" class="nav-item nav-link">Harmonicas</a>
-                    <a href="#" class="nav-item nav-link">Tunings</a>
-                    <a href="#" class="nav-item nav-link">History</a> <!-- disabled  tabindex="-1"-->
-                    <a href="#" class="nav-item nav-link">Settings</a>
-                    <a href="#" class="nav-item nav-link">Profile</a>
+            <div class="collapse navbar-collapse ms-5 ps-5" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="#" class="nav-item nav-link active" id="capture" onclick="showPage(this)">Capture</a>
+                    <a href="#" class="nav-item nav-link" id="harmonicas" onclick="showPage(this)">Harmonicas</a>
+                    <a href="#" class="nav-item nav-link" id="tunings" onclick="showPage(this)">Tunings</a>
+                    <a href="#" class="nav-item nav-link" id="history" onclick="showPage(this)">History</a>
+                    <a href="#" class="nav-item nav-link" id="settings" onclick="showPage(this)">Settings</a>
+                    <a href="#" class="nav-item nav-link" id="profile" onclick="showPage(this)">Profile</a>
+                    <a href="#" class="nav-item nav-link" id="help" onclick="showPage(this)">Help</a>
                 </div>
                 <div class="navbar-nav ms-auto">
                     <a href="#" class="nav-item nav-link">Logout</a>
@@ -31,7 +66,385 @@
             </div>
       </div>
     </nav>
+
+    <div class="shown" id="capturescreen">
+    <div class="container-fluid">
+      <div class="row mt-5">
+        <div class="col"></div>
+        <div class="col text-center"> <!-- justify-content-center text-center  -->
+
+              <button type="button" class="btn btn-outline-dark"><span class="fa fa-plus"></span></button>&nbsp;&nbsp;
+              <!-- fs is for Font Size -->
+              <span class="dropdown-toggle fs-4" data-bs-toggle="dropdown">My Special 20 Set : <span class="fst-italic">Richter 10-Hole Diatonic</span></span>
+              <div class="dropdown-menu dropdown-menu-end">
+                  <span class="dropdown-item">My Seydel Set- Richter 10-Hole Diatonic</span>
+                  <span  class="dropdown-item">My Hohner 364 Set- Richter 12-Hole Diatonic</span>
+              </div>
+              <!-- <span class="fs-5 fw-bold">Key of </span> -->
+              <span class="dropdown-toggle fs-4 ms-2" data-bs-toggle="dropdown">C</span>
+              <div class="dropdown-menu dropdown-menu-end">
+                  <span class="dropdown-item">A</span>
+                  <span class="dropdown-item">B</span>
+              </div>
+        </div>
+        <div class="col"></div>
+      </div> <!-- end of row -->
+    </div> <!-- end of container-fluid -->
+
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col"></div>
+        <div class="col text-center"> <!-- justify-content-center text-center  -->
+            <div class="btn-group">
+              <button type="button" class="btn rounded-pill shadow btn-outline-primary"><span class="fa fa-refresh pe-2"></span>Reset</button>
+              <button type="button" class="btn rounded-pill shadow btn-outline-primary ms-3"><span class="fa fa-play pe-2"></span>Start</button>
+            </div>
+        </div>
+        <div class="col"></div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4"> <!-- justify-content-center text-center  -->
+             <div class="row">
+               <div class="col-4 fs-4 fw-bold text-end">Expected:</div>
+               <div class="col-4 text-center fs-2 ps-4 fw-bold text-primary">C<sub style="font-size: 8px;">4</sub></div>
+               <div class="col-4"></div>
+           </div>
+        </div>
+        <div class="col-lg-4"></div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4"> <!-- justify-content-center text-center  -->
+             <div class="row">
+               <div class="col-4 fs-4 fw-bold text-end">Played:</div>
+               <div class="col-4 text-center"><img src="images/extra/played-sm.png"></div>
+               <div class="col-4"></div>
+           </div>
+        </div>
+        <div class="col-lg-4"></div>
+      </div>
+    </div> <!-- end of container -->
+
+
+      <div class="container-fluid mt-5">
+          <div class="harpscroll">
+              <div class="row mt-5 flex-nowrap">
+
+                <div class="col"></div>
+
+                <div class="col"> <!-- justify-content-center text-center  -->
+                         <div class="row flex-nowrap" id="harp"> <!-- flex-nowrap -->
+                      <!--       <div class="fixed border">
+                                <div class="row border">1
+                                </div>
+                                <div class="row border">1
+                                </div>
+                                <div class="row border">1
+                                </div>
+                             </div>
+                             <div class="fixed border">
+                               <div class="row border">2
+                               </div>
+                               <div class="row border">2
+                               </div>
+                               <div class="row border">2
+                               </div>
+                             </div>
+                             <div class="fixed border">
+                               <div class="row border">3
+                               </div>
+                               <div class="row border">3
+                               </div>
+                               <div class="row border">3
+                               </div>
+                             </div>
+                             <div class="fixed border">
+                               <div class="row border">4
+                               </div>
+                               <div class="row border">4
+                               </div>
+                               <div class="row border">4
+                               </div>
+                             </div>
+                             <div class="fixed border">
+                               <div class="row border">5
+                               </div>
+                               <div class="row border">5
+                               </div>
+                               <div class="row border">5
+                               </div>
+                             </div>
+                             <div class="fixed border">
+                               <div class="row border">6
+                               </div>
+                               <div class="row border">6
+                               </div>
+                               <div class="row border">6
+                               </div>
+                             </div>
+                             <div class="fixed border">
+                               <div class="row cover border">7
+                               </div>
+                               <div class="row hole border">7
+                               </div>
+                               <div class="row cover border">7
+                               </div>
+                             </div> -->
+                             <div class="edge" style="background-image: url('images/diatonic-left.png');">
+                               <div class="float-end"> <!-- wrap in float-end -->
+                                 <div class="row cover">
+                                    <div class="col text-center my-auto"><img src="images/check.png" alt="OK" width="24" height="20"/></div>
+                                 </div>
+                                 <div class="row hole" style="background-image: url('images/down-block.gif');">
+                                 </div>
+                                 <div class="row cover">
+                                   <div class="col text-center my-auto"><img src="images/check.png" alt="OK" width="24" height="20"/></div>
+                                 </div>
+                               </div>
+                             </div>
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover">
+                                 <div class="col text-center my-auto">2</div>
+                               </div>
+                               <div class="row hole" style="background-image: url('images/up-block.gif');"> -->
+                               </div>
+                               <div class="row cover">
+                                 <div class="col text-center my-auto"></div>
+                               </div>
+                             </div>
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover">
+                                 <div class="col text-center my-auto">3</div>
+                               </div>
+                               <div class="row hole" style="background-image: url('images/down-block.gif');">
+                               </div>
+                               <div class="row cover">
+                                 <div class="col text-center my-auto"></div>
+                               </div>
+                             </div>
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover">
+                                 <div class="col text-center my-auto">4</div>
+                               </div>
+                               <div class="row hole">
+                               </div>
+                               <div class="row cover">
+                                 <div class="col text-center my-auto"></div>
+                               </div>
+                             </div>
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover">
+                                 <div class="col text-center my-auto">5</div>
+                               </div>
+                               <div class="row hole">
+                               </div>
+                               <div class="row cover">
+                                 <div class="col text-center my-auto"></div>
+                               </div>
+                             </div>
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover">
+                                 <div class="col text-center my-auto">6</div>
+                               </div>
+                               <div class="row hole">
+                               </div>
+                               <div class="row cover">
+                                 <div class="col text-center my-auto"></div>
+                               </div>
+                             </div>
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover">
+                                 <div class="col text-center my-auto">7</div>
+                               </div>
+                               <div class="row hole">
+                               </div>
+                               <div class="row cover">
+                                 <div class="col text-center my-auto"></div>
+                               </div>
+                             </div>
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover">
+                                 <div class="col text-center my-auto">8</div>
+                               </div>
+                               <div class="row hole">
+                               </div>
+                               <div class="row cover">
+                                 <div class="col text-center my-auto"></div>
+                               </div>
+                             </div>
+                             <div class="fixed" style="background-image: url('images/diatonic-center.png');">
+                               <div class="row cover">
+                                 <div class="col text-center my-auto">9</div>
+                               </div>
+                               <div class="row hole">
+                               </div>
+                               <div class="row cover">
+                                 <div class="col text-center my-auto"></div>
+                               </div>
+                             </div>
+                             <div class="edge" style="background-image: url('images/diatonic-right.png');">
+                               <div class="float-start"> <!-- wrap in float-start -->
+                                 <div class="row cover">
+                                   <div class="col text-center my-auto">10</div>
+                                 </div>
+                                 <div class="row hole">
+                                 </div>
+                                 <div class="row cover">
+                                   <div class="col text-center my-auto"></div>
+                                 </div>
+                               </div>
+                             </div>
+                    <!--         <div class="fixed border">
+                               <div class="row cover border">18
+                               </div>
+                               <div class="row hole border">18
+                               </div>
+                               <div class="row cover border">18
+                               </div>
+                             </div>
+                             <div class="fixed border">
+                               <div class="row border">19
+                               </div>
+                               <div class="row border">19
+                               </div>
+                               <div class="row border">19
+                               </div>
+                             </div>
+                             <div class="fixed border">
+                               <div class="row border">20
+                               </div>
+                               <div class="row border">20
+                               </div>
+                               <div class="row border">20
+                               </div>
+                             </div>
+                             <div class="fixed border">
+                               <div class="row border">21
+                               </div>
+                               <div class="row border">21
+                               </div>
+                               <div class="row border">21
+                               </div>
+                             </div>
+                             <div class="fixed border">
+                               <div class="row border">22
+                               </div>
+                               <div class="row border">22
+                               </div>
+                               <div class="row border">22
+                               </div>
+                             </div>
+                             <div class="fixed border">
+                               <div class="row border">23
+                               </div>
+                               <div class="row border">23
+                               </div>
+                               <div class="row border">23
+                               </div>
+                             </div>
+                             <div class="fixed border">
+                               <div class="row border">24
+                               </div>
+                               <div class="row border">24
+                               </div>
+                               <div class="row border">24
+                               </div>
+                             </div> -->
+                         </div>
+                       </div>
+
+                <div class="col"></div>
+
+            </div> <!-- end of row -->
+        </div> <!-- end of harpscroll -->
+    </div> <!-- end of harp container -->
+
+
+    <div class="container-fluid freq-bars">
+      <div class="row">
+        <div class="col"><img src="images/extra/freq-bars.png" style="width: 100%;"/></div>
+      </div>
+    </div>
+
+  </div> <!-- end of "capture" container??? -->
+</div>  <!-- end of "capturescreen"  -->
+
+  <!-- for demo -->
+  <div class="hidden" id="harmonicasscreen">
+  <div class="container-fluid" > <!-- -->
+    <div class="row">
+      <div class="col-6 border">.col-6</div>
+      <div class="col-6 border">Harmonicas</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="hidden" id="tuningsscreen">
+  <div class="container-fluid" > <!-- -->
+    <div class="row">
+      <div class="col-6 border">.col-6</div>
+      <div class="col-6 border">Tunings</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="hidden" id="historyscreen">
+  <div class="container-fluid" > <!-- -->
+    <div class="row">
+      <div class="col-6 border">.col-6</div>
+      <div class="col-6 border">History</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="hidden" id="settingsscreen">
+  <div class="container-fluid" > <!-- -->
+    <div class="row">
+      <div class="col-6 border">.col-6</div>
+      <div class="col-6 border">Settings</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="hidden" id="profilescreen">
+  <div class="container-fluid" > <!-- -->
+    <div class="row">
+      <div class="col-6 border">.col-6</div>
+      <div class="col-6 border">Profile</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="hidden" id="helpscreen">
+  <div class="container-fluid" > <!-- -->
+    <div class="row">
+      <div class="col-6 border">.col-6</div>
+      <div class="col-6 border">Help</div>
+    </div>
+  </div>
+  </div>
+
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+    function showPage(source) {
+      //alert(source.id)
+      var visible = document.getElementsByClassName("shown")[0];
+      //alert(visible.id)
+       visible.classList.remove("shown");
+       //alert(visible.classList)
+       visible.classList.add("hidden");
+       //alert(visible.classList)
+       var target = document.getElementById(source.id+"screen");
+       //alert(target.id)
+       target.classList.remove("hidden");
+       target.classList.add("shown");
+
+       document.title = source.id;
+    }
+    </script>
 </body>
 </html>
