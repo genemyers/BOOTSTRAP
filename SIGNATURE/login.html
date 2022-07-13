@@ -72,8 +72,19 @@
                   <label class="form-label" for="form2Example27">Password</label>
                 </div>
 
+                <div class="row form-outline mb-4">
+                  <div class="col d-flex">
+                    <!-- Checkbox -->
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                      <label class="form-check-label" for="form2Example31"> Remember me </label>
+                    </div>
+                  </div>
+                </div>
+
+
                 <div class="pt-1 mb-4">
-                  <button class="btn btn-dark btn-lg w-100 btn-block"  type="button">Login</button>
+                  <button class="btn btn-dark btn-lg w-100 btn-block"  type="button" onclick="alert('Login')">Login</button>
                 </div>
 
                 <div class="d-inline text-left mb-1">
@@ -83,20 +94,20 @@
                 </div>
                 <div class="d-inline text-left">
                   <div class="form-group mx-auto mb-5">
-                    <button type="button" class="btn btn-sm btn-outline-dark"> <span class="badge text-white"><i class="fab fa-brands fa-google text-danger"></i></span>
+                    <button type="button" class="btn btn-sm btn-outline-dark" onclick="alert('Google')"> <span class="badge text-white"><i class="fab fa-brands fa-google text-danger"></i></span>
                 Google&nbsp;&nbsp;&nbsp;&nbsp;
                 </button>
-                     <button type="button" class="btn btn-sm btn-outline-dark ml-2"> <span class="badge text-white"><i class="fab fa-facebook-f text-primary"></i></span>
+                     <button type="button" class="btn btn-sm btn-outline-dark ml-2" onclick="alert('Facebook')"> <span class="badge text-white"><i class="fab fa-facebook-f text-primary"></i></span>
                 Facebook
                 </button>
                   </div>
                 </div>
 
-                <a class="small  text-muted" href="#!">Forgot password?</a>
+                <a class="small  text-muted" href="#!" onclick="alert('Forgot Password')">Forgot password?</a>
                 <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="#!"
-                    style="color: #393f81;">Register here</a></p>
-                <a href="#!" class="small text-muted">Terms of use.</a>
-                <a href="#!" class="small text-muted">Privacy policy</a>
+                    style="color: #393f81;" onclick="alert('Registration is currently closed')">Register here</a></p>
+                <a href="#!" class="small text-muted" onclick="alert('Terms')">Terms of use.</a>
+                <a href="#!" class="small text-muted" onclick="alert('Privacy')">Privacy policy</a>
               </form>
 
             </div>
