@@ -433,9 +433,9 @@
                   <td><i class="fa-solid fa-pencil text-success" />&nbsp;&nbsp;<i class="fa-solid fa-trash-can text-danger" /></td>
                 </tr>
                 <tr>
-                  <td>My Seydel Sess Steel Set</td>
+                  <td>My Seydel Lightening Set</td>
                   <td>Seydel</td>
-                  <td>Session Steel</td>
+                  <td>Lightening</td>
                   <td>Richter</td>
                   <td>Seydel Compromise</td>
                   <td><i class="fa-solid fa-pencil text-success" />&nbsp;&nbsp;<i class="fa-solid fa-trash-can text-danger" /></td>
@@ -495,9 +495,10 @@
                             <div id="collapseOneSubOne" class="accordion-collapse collapse" data-bs-parent="#mySubOneAccordion">
                                 <div class="card-body">
 
-                                  <table class="table table-striped">
-                                    <thead>
+                                  <table class="table table-light">
+                                    <thead class="table-light">
                                       <tr>
+                                        <th>Actions</th>
                                         <th>Date</th>
                                         <th>Harp Set Name</th>
                                         <th>Key</th>
@@ -505,17 +506,23 @@
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      <tr >
+                                      <tr>
+                                        <td>
+                                          <button class="btn btn-default btn-xs" data-bs-toggle="collapse" data-bs-target="#demo1"><span class="fa-solid fa-eye"></span></button>
+                                          <button class="btn btn-default btn-xs"><span class="fa-solid fa-wand-magic-sparkles"></span></button>
+                                        </td>
                                         <td>13 Jul 2022 12:03</td>
                                         <td>My Hohner Special 20 Set</td>
                                         <td>C</td>
                                         <td>Richter</td>
                                       </tr>
                                       <tr>
-                                        <td colspan="4">
-                                                <table class="table table-dark mt-0">
+                                        <td colspan="5" class="p-0">
+                                            <div class="accordian-body collapse" id="demo1">
+                                                <table class="table table-warning mt-0 mb-0">
                                                   <thead>
                                                     <tr>
+                                                      <th>Actions</th>
                                                       <th>Date</th>
                                                       <th>Temperament</th>
                                                       <th>Tuning</th>
@@ -528,6 +535,7 @@
                                                   </thead>
                                                   <tbody>
                                                     <tr>
+                                                      <td><button class="btn btn-default btn-xs"><span class="fa-solid fa-wand-magic-sparkles"></span></button></td>
                                                       <td>13 Jul 2022 12:03</td>
                                                       <td>MarineBand/Special 20</td>
                                                       <td>Richter</td>
@@ -538,6 +546,7 @@
                                                       <td>My first capture</td>
                                                     </tr>
                                                     <tr>
+                                                      <td><button class="btn btn-default btn-xs"><span class="fa-solid fa-wand-magic-sparkles"></span></button></td>
                                                       <td>13 Jul 2022 17:22</td>
                                                       <td>MarineBand/Special 20</td>
                                                       <td>Richter</td>
@@ -549,15 +558,18 @@
                                                     </tr>
                                                   </tbody>
                                                 </table>
+                                            </div>
                                           </td>
                                       </tr>
                                       <tr>
+                                        <td></td>
                                         <td>07 Jul 2022 17:41</td>
                                         <td>My Seydel Sess Steel Set</td>
                                         <td>C</td>
                                         <td>Richter</td>
                                       </tr>
                                       <tr>
+                                        <td></td>
                                         <td>07 Jul 2022 22:17</td>
                                         <td>My Lee Oscar Diatonic Set</td>
                                         <td>C</td>
@@ -565,6 +577,7 @@
                                       </tr>
                                     </tbody>
                                   </table>
+
 
                                 </div>
                             </div>
