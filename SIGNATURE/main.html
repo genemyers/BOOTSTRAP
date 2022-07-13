@@ -477,269 +477,125 @@
 -->
     <div class="hidden" id="historyscreen">
       <div class="container-fluid">
-        <!-- -->
-        <div class="row">
-          <div class="col-md-6 border">
+        <div class="accordion" id="myAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                      My Hohner Special 20 Set</button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
+                   <div class="card-body">
 
-            <div class="table-responsive">
-                 <table class="table accordion">
-                     <thead>
-                         <tr>
-                             <th scope="col">#</th>
-                             <th scope="col">Heading 1</th>
-                             <th scope="col">Heading 2</th>
-                             <th scope="col">Heading 3</th>
-                             <th scope="col">Heading 4</th>
-                         </tr>
-                     </thead>
-                     <tbody>
-                         <tr data-bs-toggle="collapse" data-bs-target="#r1">
-                             <th scope="row">1 <i class="bi bi-chevron-down"></i></th>
-                             <td>Cell</td>
-                             <td>Cell</td>
-                             <td>Cell</td>
-                             <td>Cell</td>
-                         </tr>
-                         <tr class="collapse accordion-collapse" id="r1" data-bs-parent=".table">
-                             <td colspan="5"> Item 1 detail .. This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the .accordion-body, though the transition does limit overflow. </td>
-                         </tr>
-                         <tr data-bs-toggle="collapse" data-bs-target="#r2">
-                             <th scope="row">2 <i class="bi bi-chevron-down"></i></th>
-                             <td>Cell</td>
-                             <td>Cell</td>
-                             <td>Cell</td>
-                             <td>Cell</td>
-                         </tr>
-                         <tr class="collapse accordion-collapse" id="r2" data-bs-parent=".table">
-                             <td colspan="5"> Item 2 detail .. This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the .accordion-body, though the transition does limit overflow. </td>
-                         </tr>
-                         <tr data-bs-toggle="collapse" data-bs-target="#r3">
-                             <th scope="row">3 <i class="bi bi-chevron-down"></i></th>
-                             <td>Cell</td>
-                             <td>Cell</td>
-                             <td>Cell</td>
-                             <td>Cell</td>
-                         </tr>
-                         <tr class="collapse accordion-collapse" id="r3" data-bs-parent=".table">
-                             <td colspan="5"> Item 3 detail .. This is the first item's accordion body. It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the .accordion-body, though the transition does limit overflow. </td>
-                         </tr>
-                     </tbody>
-                 </table>
-             </div>
+                      <div class="accordion" id="mySubOneAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOneSubOne">
+                                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOneSubOne">
+                                  Key of C</button>
+                            </h2>
+                            <div id="collapseOneSubOne" class="accordion-collapse collapse" data-bs-parent="#mySubOneAccordion">
+                                <div class="card-body">
+                                    <p>My C table</p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
 
-          </div>
-          <div class="col-md-6 border">
+                      <div class="accordion" id="mySubOneAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOneSubTwo">
+                                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOneSubTwo">
+                                  Key of D</button>
+                            </h2>
+                            <div id="collapseOneSubTwo" class="accordion-collapse collapse" data-bs-parent="#mySubOneAccordion">
+                                <div class="card-body">
+                                    <p>My D table</p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
 
-            <!-- Table HTML -->
-            <div class="table-responsive">
-                <table class="table table-bordered table-hover table-striped">
-                    <thead>
-                        <tr>
-                            <th>Plans</th>
-                            <th>Basic</th>
-                            <th>Standard</th>
-                            <th>Premium</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Number of Pages</td>
-                            <td>3</td>
-                            <td>6</td>
-                            <td>10</td>
-                        </tr>
-                        <tr>
-                            <td>Responsive Design</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                        </tr>
-                        <tr>
-                            <td colspan="1">
-                                <!-- Nested Table -->
-                                <table class="table table-bordered border-secondary table-secondary table-hover table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Plans</th>
-                                            <th>Basic</th>
-                                            <th>Standard</th>
-                                            <th>Premium</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Number of Pages</td>
-                                            <td>3</td>
-                                            <td>6</td>
-                                            <td>10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Design Customization</td>
-                                            <td>No</td>
-                                            <td colspan="1">
-                                                <!-- Nested Table -->
-                                                <table class="table table-bordered border-light table-light table-striped">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Plans</th>
-                                                            <th>Basic</th>
-                                                            <th>Standard</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>Number of Pages</td>
-                                                            <td>3</td>
-                                                            <td>6</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Design Customization</td>
-                                                            <td>No</td>
-                                                            <td>Yes</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Content Upload</td>
-                                                            <td>No</td>
-                                                            <td>Yes</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Responsive Design</td>
-                                                            <td>Yes</td>
-                                                            <td>Yes</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Total Prices</td>
-                                                            <td>$50</td>
-                                                            <td>$75</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </td>
-                                            <td>Yes</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Content Upload</td>
-                                            <td>No</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Responsive Design</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Prices</td>
-                                            <td>$50</td>
-                                            <td>$75</td>
-                                            <td>$99</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                        </tr>
-                        <tr>
-                            <td>Content Upload</td>
-                            <td>No</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                        </tr>
-                        <tr>
-                            <td>Responsive Design</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                        </tr>
-                        <tr>
-                            <td>Plugins/Extensions Installation</td>
-                            <td>3</td>
-                            <td>4</td>
-                            <td>6</td>
-                        </tr>
-                        <tr>
-                            <td>E-Commerce Functionality</td>
-                            <td>No</td>
-                            <td>No</td>
-                            <td>Yes</td>
-                        </tr>
-                        <tr>
-                            <td>Number of Products</td>
-                            <td>4</td>
-                            <td>6</td>
-                            <td>9</td>
-                        </tr>
-                        <tr>
-                            <td>Revisions</td>
-                            <td>Unlimited</td>
-                            <td>Unlimited</td>
-                            <td>Unlimited</td>
-                        </tr>
-                        <tr>
-                            <td>Delivery Days</td>
-                            <td>7 Days</td>
-                            <td colspan="1">
-                                <!-- Nested Table -->
-                                <table class="table table-bordered border-secondary table-secondary table-hover table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Plans</th>
-                                            <th>Basic</th>
-                                            <th>Standard</th>
-                                            <th>Premium</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Number of Pages</td>
-                                            <td>3</td>
-                                            <td>6</td>
-                                            <td>10</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Design Customization</td>
-                                            <td>No</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Content Upload</td>
-                                            <td>No</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Responsive Design</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Total Prices</td>
-                                            <td>$50</td>
-                                            <td>$75</td>
-                                            <td>$99</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                            <td>12 Days</td>
-                        </tr>
-                        <tr>
-                            <td>Total Prices</td>
-                            <td>$50</td>
-                            <td>$75</td>
-                            <td>$99</td>
-                        </tr>
-                    </tbody>
-                </table>
+                    </div> <!-- end of crd body -->
+
+                </div>
             </div>
-            <!-- End Table HTML -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                      My Seydel Lightening Set</button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#myAccordion"><!-- show -->
+                    <div class="card-body">
 
-          </div>
+                      <div class="accordion" id="mySubTwoAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwoSubOne">
+                                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwoSubOne">
+                                  Key of A</button>
+                            </h2>
+                            <div id="collapseTwoSubOne" class="accordion-collapse collapse" data-bs-parent="#mySubTwoAccordion">
+                                <div class="card-body">
+                                    <p>My A table</p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+                      <div class="accordion" id="mySubTwoAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwoSubTwo">
+                                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwoSubTwo">
+                                  Key of D</button>
+                            </h2>
+                            <div id="collapseTwoSubTwo" class="accordion-collapse collapse" data-bs-parent="#mySubTwoAccordion">
+                                <div class="card-body">
+                                    <p>My D table</p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                      My LeeOskar Diatonic Set</button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#myAccordion">
+                    <div class="card-body">
+
+                      <div class="accordion" id="mySubThreeAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThreeSubOne">
+                                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThreeSubOne">
+                                  Key of G</button>
+                            </h2>
+                            <div id="collapseThreeSubOne" class="accordion-collapse collapse" data-bs-parent="#mySubThreeAccordion">
+                                <div class="card-body">
+                                    <p>My G table</p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+                      <div class="accordion" id="mySubThreeAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThreeSubTwo">
+                                <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThreeSubTwo">
+                                  Key of F</button>
+                            </h2>
+                            <div id="collapseThreeSubTwo" class="accordion-collapse collapse" data-bs-parent="#mySubThreeAccordion">
+                                <div class="card-body">
+                                    <p>My F table</p>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     </div>
