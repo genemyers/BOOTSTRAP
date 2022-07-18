@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="layer_2"  xmlns="http://www.w3.org/2000/svg" width="200px" height="800px" viewBox="0 0 800 800">
+  <g id="cube" style="transform-style: preserve-3d;transform: rotate3d(45deg,0,0,0);">
+   <rect x="200px" y="0px" width="200px" height="200px" fill="blue" stroke="black" stroke-width="1px" style="transform: rotateX(0deg) rotateY(0deg)" />
+   <rect x="200px" y="200px" width="200px" height="200px" fill="red" stroke="black" stroke-width="1px" style="transform: rotateX(90deg) rotateY(0deg)" />
+   <rect x="200px" y="400px" width="200px" height="200px" fill="green" stroke="black" stroke-width="1px" style="transform: rotateX(180deg) rotateY(0deg)" />
+   <rect x="200px" y="600px" width="200px" height="200px" fill="yellow" stroke="black" stroke-width="1px" style="transform: rotateX(270deg) rotateY(0deg)" />
+   <rect x="400px" y="0px" width="200px" height="200px" fill="purple" stroke="black" stroke-width="1px" style="transform: rotateX(0deg) rotateY(90deg) " />
+   <rect x="0px" y="0px" width="200px" height="200px" fill="gray" stroke="black" stroke-width="1px" style="transform: rotateX(0deg) rotateY(-90deg)"/> -->
+  </g>
+</svg>
