@@ -4,7 +4,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>v4 Signature Harmonica Tuner - Main</title>
+
+    <link rel="apple-touch-icon" sizes="152x152" href="./favicon_package/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon_package/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon_package/favicon-16x16.png">
+    <link rel="manifest" href="./favicon_package/site.webmanifest">
+    <link rel="mask-icon" href="./favicon_package/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Signature Harmonica Tuner - Main</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
@@ -31,12 +40,12 @@
 
       .cover {
         width: 60px;
-        height: 40px;
+        height: 45px;
       }
 
       .hole {
         width: 60px;
-        height: 40px;
+        height: 60px;
       }
 
       .hidden {
@@ -46,6 +55,101 @@
       .shown {
         display: block;
       }
+
+      textarea {
+          resize: none;
+      }
+
+
+      .topcover {
+        width:400px;
+        animation: expandtopcover 3s 1s forwards;
+      }
+      .top_perspective {
+        height:0px;
+        width:400px;
+        animation: top_rp_perspective 2s 1s forwards;
+      }
+      .topreedplate {
+        width:400px;
+        animation: expandtopreedplate 3s 1s forwards;
+      }
+      .comb {
+        width:400px;
+      }
+      .bottomreedplate {
+        width:400px;
+        animation: expandbottomreedplate 3s 1s forwards;
+      }
+      .bottom_perspective {
+        height:0px;
+        width:300px;
+        animation: bottom_rp_perspective 2s 1s forwards;
+      }
+      .bottomcover {
+        width:400px;
+        animation: expandbottomcover 3s 1s forwards;
+      }
+      @keyframes expandtopcover {
+        from{
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-2200px);
+        }
+      }
+      @keyframes top_rp_perspective {
+        from{
+          height: 90px;
+          width: 374px;
+          perspective-origin: center;
+          transform: translateY(40px) perspective(3000px) rotateX(90deg);
+        }
+        to {
+          height: 102px;
+          width: 400px;
+          perspective-origin: center;
+          transform: translateY(-17px) perspective(300px) rotateX(30deg);
+        }
+      }
+      @keyframes expandtopreedplate {
+        from{
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-20px);
+        }
+      }
+      @keyframes expandbottomcover {
+        from{
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(2200px);
+        }
+      }
+      @keyframes expandbottomreedplate {
+        from{
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(20px);
+        }
+      }
+      @keyframes bottom_rp_perspective {
+        from{
+          height:90px;
+          width:375px;
+          transform:  translateY(-40px) perspective(300px) rotateX(-90deg);
+        }
+        to {
+          height:102px;
+          width:400px;
+          transform: translateY(17px) perspective(300px) rotateX(-30deg);
+        }
+      }
+
+
     </style>
   </head>
 
@@ -53,9 +157,9 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a href="#" class="navbar-brand">
-          <img src="images/signature3.gif" height="35" alt="Signature Harmonica Tuner">
+          <img src="images/signature_logotype-gold.svg" height="35" alt="Signature Harmonica Tuner"> <!--signature3.gif -->
         </a>
-        <div class="me-auto p-4">Welcome, <span id='username'>Walter Myers</span></div> <!-- if you change this to ms-auto it moves to the right on collapse -->
+        <div class="me-auto p-4">Welcome, <span id='username'>Jack Myers</span></div> <!-- if you change this to ms-auto it moves to the right on collapse -->
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -66,8 +170,8 @@
             <!--  <a href="#" class="nav-item nav-link" id="tunings" onclick="showPage(this)">Tunings</a> -->
             <a href="#" class="nav-item nav-link" id="history" onclick="showPage(this)">History</a>
             <a href="#" class="nav-item nav-link" id="settings" onclick="showPage(this)">Settings</a>
-            <!--    <a href="#" class="nav-item nav-link" id="profile" onclick="showPage(this)">Profile</a>
-                    <a href="#" class="nav-item nav-link" id="help" onclick="showPage(this)">Help</a> -->
+            <!--    <a href="#" class="nav-item nav-link" id="profile" onclick="showPage(this)">Profile</a> -->
+                    <a href="#" class="nav-item nav-link" id="learning" onclick="showPage(this)">Learning</a>
           </div>
           <div class="navbar-nav ms-auto">
             <a href="#" class="nav-item nav-link" onclick="alert('Logout')">Logout</a>
@@ -121,7 +225,7 @@
             <!-- justify-content-center text-center  -->
             <div class="row">
               <div class="col-4 fs-4 fw-bold text-end">Expected:</div>
-              <div class="col-4 text-center fs-1 ps-4 fw-bold text-primary">C<sub style="font-size: 10px;">&nbsp;4</sub></div>
+              <div class="col-4 text-center fs-1 ps-4 fw-bold" style="color:#b18a4b">D<sub style="font-size: 10px;">&nbsp;4</sub></div>
               <div class="col-4"></div>
             </div>
           </div>
@@ -134,7 +238,7 @@
             <!-- justify-content-center text-center  -->
             <div class="row">
               <div class="col-4 fs-4 fw-bold text-end">Played:</div>
-              <div class="col-4 text-center"><img src="images/extra/played.png" alt="played"></div>
+              <div class="col-4 text-center"><img src="images/played.png" alt="played"></div>
               <div class="col-4"></div>
             </div>
           </div>
@@ -160,10 +264,10 @@
                     <div class="row cover">
                       <div class="col text-center my-auto">&nbsp;&nbsp;&nbsp;<img src="images/check.png" alt="OK" width="24" height="20" /></div>
                     </div>
-                    <div class="row hole" style="width:60px;height:60px;background-image: url('images/blow.png');">
+                    <div class="row hole" style="background-repeat: no-repeat;background-position: center;background-image: url('images/down-draw.png');">
                     </div>
                     <div class="row cover">
-                      <div class="col text-center my-auto"> </div>
+                      <div class="col text-center my-auto"></div>
                     </div>
                   </div>
                 </div>
@@ -298,83 +402,94 @@
 
 
                   <div class="btn-group btn-block w-75 ms-4">
-                      <button type="button" class="btn btn-outline-dark" style="width: 90%;box-sizing: border-box;">Hohner</button>
+                      <button type="button" class="btn btn-outline-dark" style="width: 90%;box-sizing: border-box;">Select a Brand</button>
                       <button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" style="box-sizing: border-box;" data-bs-toggle="dropdown">
                           <span class="visually-hidden">Toggle Dropdown</span>
                       </button>
                       <div class="dropdown-menu">
+                          <a href="#" class="dropdown-item">Hohner</a>
                           <a href="#" class="dropdown-item">Seydel</a>
-                          <a href="#" class="dropdown-item">Easttop</a>
                           <a href="#" class="dropdown-item">Lee Oskar</a>
+                          <a href="#" class="dropdown-item">Suzuki</a>
+                          <a href="#" class="dropdown-item">Easttop</a>
                           <a href="#" class="dropdown-item">Other</a>
                       </div>
+                      <span class="fa fa-info-circle ms-2 mt-2 text-primary"></span>
                   </div>
 
-
-<!--
-                    <div class="dropdown">
-                      <button class="btn btn-outline-dark dropdown-toggle btn-md w-75 ms-4"  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Hohner
-                      </button>
-                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Seydel</a></li>
-                        <li><a class="dropdown-item" href="#">Easttop</a></li>
-                        <li><a class="dropdown-item" href="#">Lee Oskar</a></li>
-                        <li><a class="dropdown-item" href="#">Other</a></li>
-                      </ul>
-                    </div>
--->
                 </div>
                 <div class="col-8">
-                    <input type="text" class="form-control w-50" placeholder="Other Brand">
+                    <!-- <input type="text" class="form-control w-50" placeholder="Other Brand"> -->
+                    <textarea class="form-control w-50" id="text" name="text"
+                    maxlength="20" placeholder="Other Brand" rows="1"></textarea>
+                    <span class="pull-right label label-default" id="count_message">1/20</span>
                 </div>
             </div> <!-- end of row -->
 
             <div class="row mt-3">
                 <div class="col-4">
 
-                    <div class="dropdown">
-                      <button class="btn btn-outline-dark dropdown-toggle btn-md w-75 ms-4"  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Special 20
+                  <div class="btn-group btn-block w-75 ms-4">
+                      <button type="button" class="btn btn-outline-dark" style="width: 90%;box-sizing: border-box;">Select a Model</button>
+                      <button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" style="box-sizing: border-box;" data-bs-toggle="dropdown">
+                          <span class="visually-hidden">Toggle Dropdown</span>
                       </button>
-                      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Rocket Amp</a></li>
-                        <li><a class="dropdown-item" href="#">MarineBand</a></li>
-                        <li><a class="dropdown-item" href="#">Crossover</a></li>
-                        <li><a class="dropdown-item" href="#">Thunderbird</a></li>
-                      </ul>
-                    </div>
+                      <div class="dropdown-menu">
+                          <a href="#" class="dropdown-item">Special 20</a>
+                          <a href="#" class="dropdown-item">Rocket Amp</a>
+                          <a href="#" class="dropdown-item">Rocket</a>
+                          <a href="#" class="dropdown-item">MarineBand</a>
+                          <a href="#" class="dropdown-item">Crossover</a>
+                          <a href="#" class="dropdown-item">Thunderbird</a>
+                          <a href="#" class="dropdown-item">Other</a>
+                      </div>
+                      <span class="fa fa-info-circle ms-2 mt-2 text-primary"></span>
+                  </div>
 
                 </div>
                 <div class="col-8">
-                    <input type="text" class="form-control w-50" placeholder="Other Model">
+                    <!-- <input type="text" class="form-control w-50" placeholder="Other Model"> -->
+                    <textarea class="form-control w-50" id="text" name="text"
+                    maxlength="20" placeholder="Other Model" rows="1"></textarea>
+                    <span class="pull-right label label-default" id="count_message">1/20</span>
                 </div>
             </div> <!-- end of row -->
 
             <div class="row mt-3">
               <div class="col-12">
-                  <input type="text" class="form-control w-50 ms-3" placeholder="Harp Set Name">
+                  <!-- <input type="text" class="form-control w-50 ms-3" placeholder="Harp Set Name"> -->
+                  <textarea class="form-control w-50 ms-3" id="text" name="text"
+                  maxlength="50" placeholder="Harp Set Name" rows="1"></textarea>
+                  <span class="pull-right label label-default ms-3" id="count_message">1/50</span>
+
               </div>
             </div>
 
             <div class="row mt-4">
               <div class="col-12">
-                <div class="dropdown">
-                  <button class="btn btn-outline-dark dropdown-toggle btn-md w-50 ms-4"  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Richter
-                  </button>
-                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Paddy Richter</a></li>
-                    <li><a class="dropdown-item" href="#">Natural Minor</a></li>
-                    <li><a class="dropdown-item" href="#">Harmonic Minor</a></li>
-                    <li><a class="dropdown-item" href="#">Country</a></li>
-                  </ul>
+            <div class="btn-group btn-block w-50 ms-4">
+                <button type="button" class="btn btn-outline-dark" style="width: 90%;box-sizing: border-box;">Richter</button>
+                <button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" style="box-sizing: border-box;" data-bs-toggle="dropdown">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">Paddy Richter</a>
+                    <a href="#" class="dropdown-item">Natural Minor</a>
+                    <a href="#" class="dropdown-item">Harmonic Minor</a>
+                    <a href="#" class="dropdown-item">Country</a>
                 </div>
-              </div>
+                <span class="fa fa-info-circle ms-2 mt-2 text-primary"></span>
             </div>
+
+          </div>
+        </div>
+
 
             <div class="row mt-5 ms-3">
               <div class="col-12">
+
+                <span class="fa fa-info-circle ms-0 mb-2 text-primary"></span>
+
                 <div class="form-check">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                   <label class="form-check-label" for="flexCheckDefault">
@@ -407,22 +522,53 @@
               </div>
 
               <div class="col-9">
+
                   <div class="row">
                     <div class="col-12">
-                      <div class="dropdown">
-                        <button class="btn btn-outline-dark dropdown-toggle btn-md w-50 mb-5"  type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                          Seydel Compromise
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                          <li><a class="dropdown-item" href="#">Equal Temperament (12TET)</a></li>
-                          <li><a class="dropdown-item" href="#">MarineBand/Special 20</a></li>
-                          <li><a class="dropdown-item" href="#">Crossover</a></li>
-                          <li><a class="dropdown-item" href="#">MS Series</a></li>
-                        </ul>
+
+                      <div class="btn-group btn-block w-50 ms-4">
+                          <button type="button" class="btn btn-outline-dark" style="width: 90%;box-sizing: border-box;">Seydel Compromise</button>
+                          <button type="button" class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split" style="box-sizing: border-box;" data-bs-toggle="dropdown">
+                              <span class="visually-hidden">Toggle Dropdown</span>
+                          </button>
+                          <div class="dropdown-menu">
+                              <a href="#" class="dropdown-item">MarineBand/SP20 Compromise</a>
+                              <a href="#" class="dropdown-item">Crossover Compromise</a>
+                              <a href="#" class="dropdown-item">MS Series Compromise</a>
+                              <a href="#" class="dropdown-item">12-Limit Just Intonation</a>
+                          </div>
                       </div>
+
+
                     </div>
-                  </div>
-              </div>
+                 </div>
+
+                 </div>
+
+                 <div class="row mt-5">
+                   <div class="col-12">
+
+                     <div>Keys (Optional)<span class="fa fa-info-circle ms-2 mb-1 text-primary"></span></div>
+                     <select class="selectpicker w-25" multiple data-live-search="true">
+                      <option>G</option>
+                      <option>A♭</option>
+                      <option>A</option>
+                      <option>B♭</option>
+                      <option>B</option>
+                      <option>C</option>
+                      <option>D♭</option>
+                      <option>D</option>
+                      <option>E♭</option>
+                      <option>E</option>
+                      <option>F</option>
+                      <option>F#</option>
+                    </select>
+
+                   </div>
+                 </div> <!-- end of row -->
+
+
+
 
             </div>
 
@@ -503,8 +649,8 @@
             Order By
           </button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Captures</a></li>
-            <li><a class="dropdown-item" href="#">Harpset Name</a></li>
+            <li><a class="dropdown-item" href="#">Capture Date/Time</a></li>
+            <li><a class="dropdown-item" href="#">Harp Set Name</a></li>
           </ul>
         </div>
         </div>
@@ -877,8 +1023,9 @@
     </div>
   </div>
   </div>
+-->
 
-  <div class="hidden" id="helpscreen">
+  <div class="hidden" id="learningscreen">
   <div class="container-fluid" >
     <div class="row">
       <div class="col-6 border">.col-6</div>
@@ -886,13 +1033,27 @@
     </div>
   </div>
   </div>
--->
+
     <div class="hidden" id="resultsscreen">
       <div class="container-fluid">
         <!-- -->
         <div class="row">
-          <div class="col-6 border">.col-6</div>
-          <div class="col-6 border">Results</div>
+          <!-- <div class="col-6 border">.col-6</div>
+          <div class="col-6 border">Results</div> -->
+
+          <div class="col-12">
+          <center style="margin-top: 12%;">
+            <div style="font-size:0"><img class='topcover' src="images/harpparts/topcover.svg"></div>
+            <div style="font-size:0" ><img class='top_perspective' src="images/blow.svg"></div>
+            <div style="font-size:0"><img class='topreedplate' src="images/harpparts/reedplate.svg"></div>
+            <div style="font-size:0"><img class='comb' src="images/harpparts/comb.svg"></div>
+            <div style="font-size:0"><img class='bottomreedplate' src="images/harpparts/reedplate.svg"></div>
+            <div style="font-size:0" ><img class='bottom_perspective' src="images/draw.svg"></div>
+            <div style="font-size:0"><img class='bottomcover' src="images/harpparts/bottomcover.svg"></div>
+          </center>
+        </div>
+
+
         </div>
       </div>
     </div>
