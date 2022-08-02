@@ -39,15 +39,15 @@
        //subtract 1 because the first is static
        numChambers -= 1;
 
+
        const svg = document.getElementById("mysvg");
        const group = document.getElementById("svggroup");
        // //clears any dynamic elements
-       // const nodes = document.getElementsByClassName("dynamic");
-       //
-       // for(el of nodes){
-       //    el.remove()
-       // }
-
+       const dynnodes = document.getElementsByClassName("dynamic");
+       for(el of dynnodes){
+          //console.log(el)
+          group.removeChild(el);
+       }
 
        const last = document.getElementById("last");
        let Chamber = document.getElementById("chamber");
@@ -57,6 +57,7 @@
 
           // make a chamber
           let newChamber = Chamber.cloneNode(true);
+          newChamber.removeAttribute("id","chamber")
           let width = 75 + 50 + (i*50); //75 for the left side, 50 for the static center
           newChamber.setAttribute("x", width);
           newChamber.setAttribute("class", "dynamic");
