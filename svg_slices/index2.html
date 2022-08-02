@@ -9,7 +9,7 @@
 </head>
 <body>
     <center>
-    <select id="chambersSelect" class="mt-5" onChange="renderComb(this.options[this.selectedIndex].value)">
+    <select id="chambersSelect" class="mt-5" onChange="renderShape(this.options[this.selectedIndex].value)">
       <option value="1">One</option>
       <option value="2">Two</option>
       <option value="3">Three</option>
@@ -35,33 +35,23 @@
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
-      function renderComb(numChambers) {
+
+      function renderShape(numChambers) {
+
        //subtract 1 because the first is static
        numChambers -= 1;
 
 
-       const svg = document.getElementById("mysvg");
-       const group = document.getElementById("svggroup");
-       // //clears any dynamic elements
-       // const dynnodes = document.getElementsByClassName("dynamic");
-       //
-       // let cnt = 0;
-       //
-       // // for(el of dynnodes){
-       // //    console.log(cnt)
-       // //    group.removeChild(el);
-       // // }
-       // let len = dynnodes.length;
-       //  console.log(`Number nodes: ${len}`);
-       // for(let i = 0;i < len;i++){
-       //    console.log(cnt)
-       //    //group.removeChild(dynnodes);
-       //    dynnodes[i].remove();
-       // }
+       let svg = document.getElementById("mysvg");
+       let group = document.getElementById("svggroup");
+
+       //removes the previous rects
+       //the IMPORTANT part here is reverse()! without it the loop exits early
+       const nodes = [].slice.call(document.querySelectorAll('.dynamic')).reverse();
+       nodes.forEach(node => { node.remove(); });
 
 
-
-       const last = document.getElementById("last");
+       let last = document.getElementById("last");
        let Chamber = document.getElementById("chamber");
 
        let finalWidth = 75; //starts at 75 becqause thats the width of the left side in case only 1 hole is wanted
@@ -69,7 +59,7 @@
 
           // make a chamber
           let newChamber = Chamber.cloneNode(true);
-          //newChamber.removeAttribute("id","chamber")
+          newChamber.removeAttribute("id","chamber")
           let width = 75 + 50 + (i*50); //75 for the left side, 50 for the static center
           newChamber.setAttribute("x", width);
           newChamber.setAttribute("class", "dynamic");
@@ -77,15 +67,19 @@
           // append the new rectangle to the svg
           group.appendChild(newChamber);
           finalWidth = width;
+          console.log(i)
         }
+
         finalWidth += 50; //add the width of the last
         last.setAttribute("x", finalWidth);
         finalWidth += 75; //add the right side
         //set the svg width and viewBox
         svg.setAttribute("width", finalWidth);
         svg.setAttribute("viewBox", "0 0 " + finalWidth + " 200");
+
+
       }
-      renderComb(1);
+      renderShape(1);
     </script>
 </body>
 </html>
