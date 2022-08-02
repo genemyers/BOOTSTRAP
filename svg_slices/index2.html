@@ -62,7 +62,7 @@
           //newChamber.removeAttribute("id","chamber")
           let width = 75 + 50 + (i*50); //75 for the left side, 50 for the static center
           newChamber.setAttribute("x", width);
-          newChamber.setAttribute("class", "dynamic");
+          newChamber.setAttribute("class", "dynamic"); //set the class as dynamic so theyre easy to remove
 
           // append the new rectangle to the svg
           group.appendChild(newChamber);
@@ -76,7 +76,6 @@
         //set the svg width and viewBox
         svg.setAttribute("width", finalWidth);
         svg.setAttribute("viewBox", "0 0 " + finalWidth + " 200");
-
 
       }
       renderShape(1);
