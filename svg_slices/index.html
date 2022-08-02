@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Basic SVG</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <center>
+    <svg id="mysvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="200" viewBox="0 0 0 200">
+       <!-- <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" /> -->
+       <g id="svggroup">
+       <rect x="0" y="100" width="75" height="50" fill="gray" />
+       <rect id="last" x="0" y="100" width="75" height="50" fill="gray" />
+       </g>
+    </svg>
+    </center>
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+      function renderComb(numChambers) {
+
+       const svgns = "http://www.w3.org/2000/svg";
+       const svg = document.getElementById("mysvg");
+       const group = document.getElementById("svggroup");
+       const last = document.getElementById("last");
+       let finalWidth = 0;
+       for(let i = 0; i < numChambers;i++) {
+
+          // make a chamber
+          let newChamber = document.createElementNS(svgns, "rect");
+          let width = 75 + (i*50);
+          newChamber.setAttribute("x", width);
+          newChamber.setAttribute("y", "100");
+          newChamber.setAttribute("width", "50");
+          newChamber.setAttribute("height", "50");
+          newChamber.setAttribute("stroke", "black");
+          newChamber.setAttribute("fill","transparent");
+          newChamber.setAttribute("stroke-width", "1");
+          // append the new rectangle to the svg
+          group.appendChild(newChamber);
+          finalWidth = width;
+        }
+        finalWidth += 50; //add the width of the last
+        last.setAttribute("x", finalWidth);
+        finalWidth += 75; //add the right side
+        //set the svg width and viewBox
+        svg.setAttribute("width", finalWidth);
+        svg.setAttribute("viewBox", "0 0 " + finalWidth + " 200");
+      }
+      renderComb(24);
+    </script>
+</body>
+</html>
+
+</html>
