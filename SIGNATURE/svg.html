@@ -60,22 +60,26 @@
        <div class="row">
           <div class="col border"></div>
           <div class="col border">
+
             <div class="row"> <!--  style="margin-left:65px;" -->
               <svg id="mySVG"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
             </div>
+
           </div>
           <div class="col border"></div>
         </div> <!-- row -->
     </div>
-
+      </div>
 
     <div class="container-fluid mb-5">
        <div class="row">
           <div class="col border"></div>
           <div class="col border">
+
             <div class="row">
               <svg id='mySVG2'  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'></svg>
             </div>
+
           </div>
           <div class="col border"></div>
         </div>
@@ -112,15 +116,17 @@
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
-      function createBlowReedplate(svg) {
+
+      function createBlowReedplate(svg, numHoles) {
 
           // create the svg element
           const svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
-          // set width and height
-          //svg1.setAttribute("width", "430");
-          //svg1.setAttribute("height", "120");
-          svg1.setAttribute("viewBox", "0 0 430 120");
+          let width = 55 + 55 + ( numHoles * 32 );
+
+          // set width and height?
+          //set viewBox
+          svg1.setAttribute("viewBox", "0 0 " + width + " 120");
 
           const newRect = document.createElementNS(
             "http://www.w3.org/2000/svg",
@@ -130,7 +136,7 @@
           // the plate
           newRect.setAttribute("x", "0");
           newRect.setAttribute("y", "0");
-          newRect.setAttribute("width", "430");
+          newRect.setAttribute("width", width );
           newRect.setAttribute("height", "120");
           newRect.setAttribute("stroke", "black");
           newRect.setAttribute("fill", "white");
@@ -140,11 +146,14 @@
 
           document.getElementById(svg).appendChild(svg1);
 
-          createBlowReed(svg,svg1);
+          for (let i = 1; i <= numHoles; i++) {
+            createBlowReed(svg,svg1,i,numHoles);
+          }
+
 
        }
 
-       function createBlowReed(svg,svg1) {
+       function createBlowReed(svg,svg1, holeNum, numHoles) {
 
           const b_reed = document.createElementNS(
             "http://www.w3.org/2000/svg",
@@ -160,16 +169,17 @@
 
 
           //the reed
-          b_reed.setAttribute("x", "57");
-          b_reed.setAttribute("y", "38"); //120-60-12-10  width of plate - len of reed - base - 10
+                                        //instead of 32, we use 34 to add the width of the last reed
+          b_reed.setAttribute("x", (holeNum * 34) + 23 + 2 ); //57 - 2 is the reed base offset, 23 is the margin offset, 32 is the chamber width
+          b_reed.setAttribute("y", 38 - ( 0 - ((30/numHoles) * holeNum))); //38  96-38    120-60-12-10  width of plate - len of reed - base - 10
           b_reed.setAttribute("width", "8");
-          b_reed.setAttribute("height", "60");
+          b_reed.setAttribute("height", 60 - ((30/numHoles) * holeNum));
           b_reed.setAttribute("stroke", "black");
           b_reed.setAttribute("fill", "white");
 
 
 
-          rivet.setAttribute("cx", "61"); //55+4 to the center
+          rivet.setAttribute("cx", (holeNum * 34) + 23 + 6 ); //61 - 6 is the reed base offset, 23 is the margin offset, 32 is the chamber width-  to the center
           rivet.setAttribute("cy", "104"); //120-6- 10     width of plate - 1/2 of base  to center of circle
           rivet.setAttribute("r", "3");
           rivet.setAttribute("stroke", "black");
@@ -189,15 +199,16 @@
 
 
 
-      function createDrawReedplate(svg) {
+      function createDrawReedplate(svg, numHoles) {
 
           // create the svg element
           const svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
-          // set width and height
-          //svg1.setAttribute("width", "430");
-          //svg1.setAttribute("height", "120");
-          svg1.setAttribute("viewBox", "0 0 430 120");
+          let width = 55 + 55 + ( numHoles * 32 );
+
+          // set width and height?
+          //set viewBox
+          svg1.setAttribute("viewBox", "0 0 " + width + " 120");
 
           const newRect = document.createElementNS(
             "http://www.w3.org/2000/svg",
@@ -207,7 +218,7 @@
             // the plate
             newRect.setAttribute("x", "0");
             newRect.setAttribute("y", "0");
-            newRect.setAttribute("width", "430");
+            newRect.setAttribute("width", width);
             newRect.setAttribute("height", "120");
             newRect.setAttribute("stroke", "black");
             newRect.setAttribute("fill", "white");
@@ -216,10 +227,13 @@
 
           document.getElementById(svg).appendChild(svg1);
 
-          createDrawReed(svg,svg1);
+
+          for (let i = 1; i <= numHoles; i++) {
+            createDrawReed(svg,svg1,i,numHoles);
+          }
       }
 
-      function createDrawReed(svg, svg1) {
+      function createDrawReed(svg, svg1, holeNum, numHoles) {
 
         const b_reed = document.createElementNS(
           "http://www.w3.org/2000/svg",
@@ -233,16 +247,16 @@
 
 
         //the reed
-        b_reed.setAttribute("x", "57"); //55 + (12-8/2)
+        b_reed.setAttribute("x", (holeNum * 34) + 23 + 2 ); //57 - 2 is the reed base offset, 23 is the margin offset, 32 is the chamber width
         b_reed.setAttribute("y", "22"); // base + 10
         b_reed.setAttribute("width", "8");
-        b_reed.setAttribute("height", "60");
+        b_reed.setAttribute("height",  60 - ((30/numHoles) * holeNum) ); // 60 30/10 = 3  63 - 3 = 60   63 - 30 = 33    60 - ()(30/numHoles) * holeNum) = 1.5 *
         b_reed.setAttribute("stroke", "black");
         b_reed.setAttribute("fill", "white");
 
         //the reed base
-        base.setAttribute("x", "55"); //we base the left side on the firstest point left- the reed base
-        base.setAttribute("y", "80"); //
+        base.setAttribute("x", (holeNum * 34) + 23 ); //55 - no reed base offset, 23 is the margin offset, 32 is the chamber width-  //we base the left side on the firstest point left- the reed base
+        base.setAttribute("y", 80 + ( 0 - ((30/numHoles) * holeNum))); //80
         base.setAttribute("width", "12");
         base.setAttribute("height", "12");
         base.setAttribute("stroke", "black");
@@ -253,8 +267,8 @@
           "http://www.w3.org/2000/svg",
           "circle",
         );
-        rivet.setAttribute("cx", "61"); //55 + (12/2)  to the center
-        rivet.setAttribute("cy", "86"); //120-4-20 to center of circle
+        rivet.setAttribute("cx", (holeNum * 34) + 23 + 6 ); //61 - 6 is the reed offset, 23 is the margin offset, 32 is the chamber width-  to the center
+        rivet.setAttribute("cy", 86 + ( 0 - ((30/numHoles) * holeNum))); //120-4-20 to center of circle
         rivet.setAttribute("r", "3");
         rivet.setAttribute("stroke", "black");
         rivet.setAttribute("fill", "white");
@@ -270,10 +284,11 @@
         document.getElementById(svg).appendChild(svg1);
       }
 
-      createBlowReedplate("mySVG");
-      createBlowReedplate("mySVGp");
-      createDrawReedplate("mySVG2");
-      createDrawReedplate("mySVG2p");
+      createBlowReedplate("mySVG", 10);
+      createDrawReedplate("mySVG2", 10);
+
+      createBlowReedplate("mySVGp", 24);
+      createDrawReedplate("mySVG2p", 24);
 
     </script>
 </body>
