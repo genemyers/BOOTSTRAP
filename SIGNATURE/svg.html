@@ -36,13 +36,13 @@
     }
 
     .pers {
-      -webkit-transform: perspective(300px) rotateX(30deg);
-      transform: perspective(300px) rotateX(30deg);
+      -webkit-transform: perspective(300px) rotateX(30deg) scale(0.89);
+      transform: perspective(300px) rotateX(30deg) scale(0.89);
     }
 
     .pers_neg {
-      -webkit-transform: perspective(300px) rotateX(-30deg);
-      transform: perspective(300px) rotateX(-30deg);
+      -webkit-transform: perspective(300px) rotateX(-30deg) scale(0.89);
+      transform: perspective(300px) rotateX(-30deg) scale(0.89);
     }
 
     </style>
@@ -114,16 +114,16 @@
       const reedWidth = 8;
       const rivetRadius = 3;
       //reed plates
-      const height = 120;
-      const edge = 55;
-      const chamberWidth = 32;
+      const height = 120;  //284
+      const edge = 110;
+      const chamberWidth = 47;
 
       function createBlowReedplate(svg, numHoles) {
 
           // create the svg element
           const svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
-          let width = ((edge * 2) + ( numHoles * chamberWidth));
+          let width = ((edge * 2) + ( numHoles * chamberWidth) - chamberWidth + reedBaseSq);
 
           // set width and height?
           //set viewBox
@@ -209,7 +209,7 @@
           // create the svg element
           const svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
-          let width = ((edge * 2) + ( numHoles * chamberWidth));
+          let width = ((edge * 2) + ( numHoles * chamberWidth) - chamberWidth + reedBaseSq);
 
           // set width and height?
           //set viewBox
@@ -237,7 +237,7 @@
           //   createDrawReed(svg,svg1,i,numHoles);
           // }
 
-          let start = 54;
+          let start = edge;
           //let chamberWidth = (width - (start+(start/2))-4)/numHoles;
 
           for (let i = 1; i <= numHoles; i++) {
