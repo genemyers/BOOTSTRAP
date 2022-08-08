@@ -8,33 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
 
-    .perspective {
-      width:430px;
-      height:120px;
-      background: url('images/blow.svg');
-      -webkit-transform: perspective(300px) rotateX(30deg);
-      transform: perspective(300px) rotateX(30deg);
-    }
-    .perspective_neg {
-      width:430px;
-      height:120px;
-      background: url('images/draw.svg');
-      -webkit-transform: perspective(300px) rotateX(-30deg);
-      transform: perspective(300px) rotateX(-30deg);
-    }
-
-    .topview {
-      width:430px;
-      height:120px;
-      background: url('images/blow.svg');
-    }
-
-    .bottomview {
-      width:430px;
-      height:120px;
-      background: url('images/draw.svg');
-    }
-
     .pers {
       -webkit-transform: perspective(300px) rotateX(30deg) scale(0.89);
       transform: perspective(300px) rotateX(30deg) scale(0.89);
@@ -48,17 +21,38 @@
     </style>
 </head>
 <body>
-    <!--
+
     <center>
-      <div class="mt-5 perspective"></div>
-      <div class="mt-5 perspective_neg"></div>
-      <div class="mt-5 mb-5 topview"></div>
-      <div class="mt-5 mb-5 bottomview"></div>
+
+      <select id="chambersSelect" class="mt-5" onChange="renderHarp(this.options[this.selectedIndex].value)">
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+        <option value="4">Four</option>
+        <option value="5">Five</option>
+        <option value="6">Six</option>
+        <option value="7">Seven</option>
+        <option value="8">Eight</option>
+        <option value="9">Nine</option>
+        <option value="10">Ten</option>
+        <option value="11">Eleven</option>
+        <option value="12">Twelve</option>
+        <option value="13">Thirteen</option>
+        <option value="14">Fourteen</option>
+        <option value="15">Fifteen</option>
+        <option value="16">Sixteen</option>
+        <option value="17">Seventeen</option>
+        <option value="18">Eighteen</option>
+        <option value="19">Nineteen</option>
+        <option value="20">Twenty</option>
+        <option value="21">Twenty One</option>
+        <option value="22">Twenty Two</option>
+        <option value="23">Twenty Three</option>
+        <option value="24">Twenty Four</option>
+      </select><br/>
     </center>
-    -->
-    <!-- <div class="mt-5 mb-5 border"><img src="images/draw.svg" width="430px"></div> -->
 
-
+<!--
     <div class="container-fluid mt-5 mb-5">
        <div class="row">
           <div class="col-12 border">
@@ -79,16 +73,35 @@
           </div>
         </div>
     </div>
+-->
 
-
-    <div class="container-fluid mb-5">
-       <div class="row pers">
+    <div class="container-fluid mt-5">
+       <div class="row pers"> <!--  pers  -->
           <div class="col-12 border">
             <div class="row"> <!--  style="margin-left:65px;" -->
               <svg id="mySVGp"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
             </div>
           </div>
         </div> <!-- row -->
+    </div>
+
+
+    <div class="container-fluid">
+       <div class="row" >
+          <div class="col-12 border" >
+            <div class="row" style="height:55px">
+
+                <svg id="mysvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="200" viewBox="0 0 0 200">
+                   <g id="svggroup">
+                   <rect x="0" y="0" width="115" height="55" fill="grey" />
+                   <rect id="chamber" x="115" y="0" width="59" height="55" stroke="black" fill="transparent" stroke-width="1" />
+                   <rect id="last" x="0" y="0" width="115" height="55" fill="grey" />
+                   </g>
+                </svg>
+
+            </div>
+          </div>
+        </div>
     </div>
 
 
@@ -118,7 +131,14 @@
       const edge = 110;
       const chamberWidth = 47;
 
+      //comb
+      const holeWidth = 59;
+      const edgeWidth = 115;
+
       function createBlowReedplate(svg, numHoles) {
+
+          const svgOld = document.getElementById("dyn");
+          //svgOld.remove();
 
           // create the svg element
           const svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -135,6 +155,7 @@
           );
 
           // the plate
+          newRect.setAttribute("id", "dyn");
           newRect.setAttribute("x", "0");
           newRect.setAttribute("y", "0");
           newRect.setAttribute("width", width );
@@ -205,6 +226,7 @@
 
 
       function createDrawReedplate(svg, numHoles) {
+
 
           // create the svg element
           const svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -300,11 +322,60 @@
         document.getElementById(svg).appendChild(svg1);
       }
 
-      createBlowReedplate("mySVG", 10);
-      createDrawReedplate("mySVG2", 10);
 
-      createBlowReedplate("mySVGp", 10);
-      createDrawReedplate("mySVG2p", 10);
+
+      function renderComb(numChambers) {
+
+       //subtract 1 because the first is static
+       numChambers -= 1;
+
+
+       let svg = document.getElementById("mysvg");
+       let group = document.getElementById("svggroup");
+
+       //removes the previous rects
+       //the IMPORTANT part here is reverse()! without it the loop exits early
+       const nodes = [].slice.call(document.querySelectorAll('.dynamic')).reverse();
+       nodes.forEach(node => { node.remove(); });
+
+
+       let last = document.getElementById("last");
+       let Chamber = document.getElementById("chamber");
+
+       let finalWidth = edgeWidth; //starts at 75 becqause thats the width of the left side in case only 1 hole is wanted
+       for(let i = 0; i < numChambers;i++) {
+
+          // make a chamber
+          let newChamber = Chamber.cloneNode(true);
+          //newChamber.removeAttribute("id","chamber")
+          let width = edgeWidth + holeWidth + (i* holeWidth); //75 for the left side, 50 for the static center
+          newChamber.setAttribute("x", width);
+          newChamber.setAttribute("class", "dynamic"); //set the class as dynamic so theyre easy to remove
+
+          // append the new rectangle to the svg
+          group.appendChild(newChamber);
+          finalWidth = width;
+          console.log(i)
+        }
+
+        finalWidth += holeWidth; //add the width of the last
+        last.setAttribute("x", finalWidth);
+        finalWidth += edgeWidth; //add the right side
+        //set the svg width and viewBox
+        svg.setAttribute("width", finalWidth);
+        svg.setAttribute("viewBox", "0 0 " + finalWidth + " 200");
+
+      }
+
+      function renderHarp(numChambers) {
+        createBlowReedplate("mySVGp", numChambers);
+        renderComb(numChambers);
+        createDrawReedplate("mySVG2p", numChambers);
+      }
+
+      renderHarp(4);
+
+
 
     </script>
 </body>
