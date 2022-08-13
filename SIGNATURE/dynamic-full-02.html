@@ -19,37 +19,66 @@
     }
 
     .row-bottom-margin { margin-bottom:-10px; }
+    .row-top-margin { margin-top:-10px; }
 
     </style>
 </head>
 <body>
 
-    <div class="container-fluid mt-5">
+  <div class="container-fluid mt-5">
 
 
 
-
-            <div class="row pers row-bottom-margin border"> <!--  style="margin-left:65px;" -->
-              <svg id="mySVGp"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
-            </div>
-
-            <div class="row row-bottom-margin border" style="height:55px">
-                <svg id="mysvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="55" height="200" viewBox="0 0 55 200">
-                   <g id="svggroup">
-                   <rect x="0" y="0" width="115" height="55" fill="grey" />
-                   <rect id="chamber" x="115" y="0" width="59" height="55" stroke="black" fill="transparent" stroke-width="1" />
-                   <rect id="last" x="0" y="0" width="115" height="55" fill="grey" />
-                   </g>
-                </svg>
-            </div>
-
-            <div class="row pers_neg row-bottom-margin border">
-              <svg id='mySVG2p'  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'></svg>
-            </div>
-
-
-
+    <div class="row">
+       <div class="col-12 border">
+          <div class="row pers row-bottom-margin"> <!--  style="margin-left:65px;" -->
+            <svg id="mySVGtop-p"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+          </div>
+      </div>
     </div>
+
+
+    <div class="row">
+       <div class="col-12 border">
+          <div class="row" style="height:10px">
+                <svg id="mySVGtop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+       <div class="col-12 border">
+          <div class="row" style="height:55px">
+              <svg id="mysvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="55" height="200" viewBox="0 0 55 200">
+                 <g id="svggroup">
+                 <rect x="0" y="0" width="115" height="55" fill="grey" />
+                 <rect id="chamber" x="115" y="0" width="59" height="55" stroke="black" fill="transparent" stroke-width="1" />
+                 <rect id="last" x="0" y="0" width="115" height="55" fill="grey" />
+                 </g>
+              </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+         <div class="col-12 border">
+            <div class="row" style="height:10px">
+                  <svg id='mySVGbtm'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+            </div>
+        </div>
+      </div>
+
+      <div class="row">
+         <div class="col-12 border">
+          <div class="row pers_neg row-top-margin">
+            <svg id='mySVGbtm-p'  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'></svg>
+          </div>
+        </div>
+      </div>
+
+
+  </div>
 
 
     <!-- https://stackoverflow.com/questions/21915059/setting-background-image-to-dynamic-svg-data -->
@@ -77,6 +106,32 @@
       //comb
       const holeWidth = 59;
       const edgeWidth = 115;
+
+      function createReedplateFace(svg, numHoles) {
+
+          let rp = document.getElementById(svg);
+          //width="820" height="10" viewBox="0 0 820 10"
+          let width = (edgeWidth * 2) + (numHoles * 59);   //230 + 590
+          rp.setAttribute("width", width);
+          rp.setAttribute("height", "10");
+          rp.setAttribute("viewBox", "0 0 " + width + " 10");
+
+          const newRect = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "rect",
+          );
+
+          newRect.setAttribute("x", "0");
+          newRect.setAttribute("y", "0");
+          newRect.setAttribute("width", width );
+          newRect.setAttribute("height", "10");
+          newRect.setAttribute("stroke", "black");
+          newRect.setAttribute("fill", "transparent");
+          newRect.setAttribute("stroke-width", "1");
+
+          rp.appendChild(newRect);
+
+      }
 
       function createBlowReedplate(svg, numHoles) {
 
@@ -311,9 +366,11 @@
       }
 
       function renderHarp(numChambers) {
-        createBlowReedplate("mySVGp", numChambers);
+        createBlowReedplate("mySVGtop-p", numChambers);
+        createReedplateFace("mySVGtop", numChambers);
         renderComb(numChambers);
-        createDrawReedplate("mySVG2p", numChambers);
+        createReedplateFace("mySVGbtm", numChambers);
+        createDrawReedplate("mySVGbtm-p", numChambers);
       }
 
       renderHarp(numChambers);
