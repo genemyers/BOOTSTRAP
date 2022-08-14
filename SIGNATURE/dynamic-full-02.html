@@ -9,8 +9,11 @@
     <style>
 
     .pers {
-      -webkit-transform: perspective(300px) rotateX(30deg) scale(0.89);
-      transform: perspective(300px) rotateX(30deg) scale(0.89);
+     height: 120px;
+      opacity: 0;
+      animation: top_rp_perspective 2s 1s forwards;
+    /*  -webkit-transform: perspective(300px) rotateX(30deg) scale(0.89);
+      transform: perspective(300px) rotateX(30deg) scale(0.89);*/
     }
 
     .pers_neg {
@@ -20,6 +23,41 @@
 
     .row-bottom-margin { margin-bottom:-10px; }
     .row-top-margin { margin-top:-10px; }
+
+    @keyframes top_rp_perspective {
+      0%{
+        opacity: 0;
+        transform-origin: bottom
+        perspective-origin: bottom
+        transform: translateY(-30px) perspective(300px) rotateX(0deg) scale(0.95);
+      }
+      10%{
+        opacity: 0;
+        transform-origin: bottom;
+        perspective-origin: bottom;
+        transform: translateY(-30px) perspective(300px) rotateX(-270deg) scale(0.95);
+      }
+      100% {
+        /*height: 120px;*/
+        opacity: 1;
+        transform-origin: bottom;
+        perspective-origin: bottom;
+        transform: translateY(-35px) perspective(300px) rotateX(-330deg) scale(0.95);
+      }
+    }
+
+    @keyframes bottom_rp_perspective {
+      from{
+        height:90px;
+        width:375px;
+        transform:  translateY(-40px) perspective(300px) rotateX(0deg);
+      }
+      to {
+        height:102px;
+        width:400px;
+        transform: translateY(17px) perspective(300px) rotateX(-30deg);
+      }
+    }
 
     </style>
 </head>
