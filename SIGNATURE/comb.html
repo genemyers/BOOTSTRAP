@@ -10,20 +10,36 @@
       .harpscroll {
         white-space: nowrap;
         overflow-x: auto;
+
       }
       .fixed {
-        width: 54px;
-        height: 134px;  /*  134px */
+        width: 67px;
+        height: 68px;
       }
 
       .edge {
-        width: 158px;
-        height: 134px;
+        width: 198px;
+        height: 68px;
       }
       .cover {
-        width: 158pxpx;
-        height: 45px;
+        width: 236px;
+        height: 66px;
       }
+      /*
+      .fixed {
+        width: 80px;
+        height: 73px;
+      }
+
+      .edge {
+        width: 236px;
+        height: 73px;
+      }
+      .cover {
+        width: 236px;
+        height: 51px;
+      }
+      */
     </style>
 </head>
 <body>
@@ -34,15 +50,23 @@
         <div class="row mt-5 flex-nowrap">
 
             <div class="col"></div>
-            <div class="col">
+            <div class="col" style="margin-top:400px">
 
 
 
 
               <!-- justify-content-center text-center  -->
               <div class="row flex-nowrap edge cover" id="cover">
-                <img src="images/line-drawings/TopCoverLeft.svg"></img>
+                  <div class="col">
+                   <img src="images/line-drawings/TopCoverLeft.svg"></img>
+                    <svg id="mysvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="475" height="58" viewBox="0 0 475 58">
+                       <line x1="0" y1="0" x2="475" y2="0" style="stroke:black;stroke-width:3" /></line>
+                       <line x1="0" y1="58" x2="475" y2="58" style="stroke:black;stroke-width:3" /></line>
+                    </svg>
+                    <img src="images/line-drawings/TopCoverRight.svg"></img>
+                </div>
               </div>
+
               <div class="row flex-nowrap" id="harp">
                 <!-- flex-nowrap -->
                 <!-- THESE WILL BE ADDED DYNAMICALLY -->
@@ -68,6 +92,16 @@
                 <div class="edge" style="background-image: url('images/line-drawings/RightComb.svg');">
                 </div>
                 <!-- THE ABOVE WILL BE ADDED DYNAMICALLY -->
+              </div>
+              <div class="row flex-nowrap edge cover id="cover">
+                <div class="col">
+                  <img src="images/line-drawings/BottomCoverLeft.svg"></img>
+                  <svg id="mysvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="475" height="58" viewBox="0 0 475 58">
+                     <line x1="0" y1="7" x2="475" y2="7" style="stroke:black;stroke-width:2" /></line>
+                     <line x1="0" y1="52" x2="475" y2="52" style="stroke:black;stroke-width:2" /></line>
+                  </svg>
+                  <img src="images/line-drawings/BottomCoverRight.svg"></img>
+                </div>
               </div>
 
             </div>
