@@ -8,39 +8,59 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
 
+    .fixed {
+      width: 59px;
+      height: 55px;
+    }
+
+    .edge {
+      width: 175px;
+      height: 55px;
+    }
+
+    .top-cover {
+      width: 175px;
+      height: 48px;
+    }
+
+    .bottom-cover {
+      width: 175px; /* 199 */
+      height: 38px;
+    }
+
     .pers {
-      height: 120px;
+      height: 0px;
       transform: rotateX(90deg);
-      /* animation: top_rp_perspective 2s 1s forwards; */
+      animation: top_rp_perspective 2s 1s forwards;
     }
 
     .pers-front {
-      /* animation: top_rpf_perspective 2s 1s forwards; */
+      animation: top_rpf_perspective 2s 1s forwards;
     }
 
     .pers_neg {
-      height: 120px;
+      height: 0px;
       transform: rotateX(270deg);
-      /* animation: bottom_rp_perspective 2s 1s forwards; */
+      animation: bottom_rp_perspective 2s 1s forwards;
     }
 
     .pers_neg-front {
-      /* animation: bottom_rpf_perspective 2s 1s forwards; */
+      animation: bottom_rpf_perspective 2s 1s forwards;
     }
 
-    .row-bottom-margin { margin-bottom:0px; }
-    .row-top-margin { margin-top:0px; }
 
     @keyframes top_rp_perspective {
       0%{
+        height: 120px;
         transform-origin: bottom;
         perspective-origin: bottom;
         transform: perspective(300px) rotateX(90deg) scale(0.90);
       }
       100% {
+        height: 120px;
         transform-origin: bottom;
         perspective-origin: bottom;
-        transform: translateY(-24px) perspective(300px) rotateX(-330deg) scale(0.95);
+        transform: translateY(-26px) perspective(300px) rotateX(-330deg) scale(0.95);
       }
     }
 
@@ -59,14 +79,16 @@
 
     @keyframes bottom_rp_perspective {
       0%{
+        height: 120px;
         transform-origin: top;
         perspective-origin: top;
         transform: perspective(300px) rotateX(270deg);
       }
       100% {
+        height: 120px;
         transform-origin: top;
         perspective-origin: top;
-        transform: translateY(-4px) perspective(300px) rotateX(330deg);
+        transform: perspective(300px) rotateX(330deg);
       }
     }
 
@@ -87,13 +109,26 @@
 </head>
 <body>
 
-  <div class="container-fluid mt-5">
+  <div class="container-fluid" style="margin-top:400px">
 
+    <div class="row">
+      <div class="col"></div>  <!-- centers the comb -->
+       <div class="col">
+
+          <div class="row flex-nowrap" id="top-cover">
+               <div class="top-cover" style="background-image: url('images/line-drawings/TopCoverLeft.svg');"></div>
+               <div id="top-cover-center"></div>
+               <div class="top-cover" style="background-image: url('images/line-drawings/TopCoverRight.svg');"></div>
+          </div>
+
+      </div> <!-- end of comb column -->
+    <div class="col"></div> <!-- centers the comb -->
+  </div>  <!-- end of main comb row -->
 
     <!-- REEDPLATE TOP PERSPECTIVE -->
     <div class="row">
-       <div class="col-12 border">
-          <div class="row pers row-bottom-margin"> <!--  style="margin-left:65px;" -->
+       <div class="col-12">
+          <div class="row pers"> <!--  style="margin-left:65px;" -->
             <svg id="mySVGtop-p"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
           </div>
       </div>
@@ -101,33 +136,32 @@
 
     <!-- REEDPLATE FRONT -->
     <div class="row">
-       <div class="col-12 border">
+       <div class="col-12">
           <div class="row pers-front" style="height:10px">
                 <svg id="mySVGtop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
           </div>
       </div>
     </div>
 
-    <!-- COMB -->
+
     <div class="row">
-       <div class="col-12 border">
-          <div class="row" style="height:55px">
+      <div class="col"></div>  <!-- centers the comb -->
+       <div class="col">
 
-              <svg id="mysvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="55" height="200" viewBox="0 0 55 200">
-                 <g id="svggroup">
-                 <rect x="0" y="0" width="115" height="55" fill="grey" />
-                 <rect id="chamber" x="115" y="0" width="59" height="55" stroke="black" fill="transparent" stroke-width="1" />
-                 <rect id="last" x="0" y="0" width="115" height="55" fill="grey" />
-                 </g>
-              </svg>
+         <div class="row flex-nowrap" id="comb">
+           <div class="edge" style="background-image: url('images/line-drawings/LeftComb.svg');"></div>
+           <!-- CENTERS ADDED DYNAMICALLY -->
+           <div class="edge" id="last" style="background-image: url('images/line-drawings/RightComb.svg');"></div>
+         </div> <!-- end of row -->
 
-          </div>
-        </div>
-      </div>
+       </div> <!-- end of comb column -->
+       <div class="col"></div> <!-- centers the comb -->
+       </div>  <!-- end of main comb row -->
+
 
       <!-- REEDPLATE FRONT -->
       <div class="row">
-         <div class="col-12 border">
+         <div class="col-12">
             <div class="row pers_neg-front" style="height:10px">
                   <svg id='mySVGbtm'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
             </div>
@@ -135,14 +169,29 @@
       </div>
 
       <!-- REEDPLATE BOTTOM PERSPECTIVE -->
-      <div class="row">
-         <div class="col-12 border">
-          <div class="row pers_neg row-top-margin">
+      <div class="row ">
+         <div class="col-12">
+          <div class="row pers_neg">
             <svg id='mySVGbtm-p'  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'></svg>
           </div>
         </div>
       </div>
 
+      <div class="row">
+        <div class="col"></div>  <!-- centers the comb -->
+         <div class="col">
+            <div class="row flex-nowrap" id="cover">
+                   <div class="bottom-cover" style="background-image: url('images/line-drawings/BottomCoverLeft.svg');"></div>
+                   <div id="bottom-cover-center"></div>
+                   <div class="bottom-cover" style="background-image: url('images/line-drawings/BottomCoverRight.svg');"></div>
+            </div>
+          </div> <!-- end of comb column -->
+        <div class="col"></div> <!-- centers the comb -->
+      </div>  <!-- end of main comb row -->
+
+    </div> <!-- end of comb column -->
+    <div class="col"></div> <!-- centers the comb -->
+  </div>  <!-- end of main comb row -->
 
   </div>
 
@@ -390,53 +439,31 @@
 
       function renderComb(numChambers) {
 
-       //subtract 1 because the first is static
-       numChambers -= 1;
-
-
-       let svg = document.getElementById("mysvg");
-       let group = document.getElementById("svggroup");
-
-       //removes the previous rects
-       //the IMPORTANT part here is reverse()! without it the loop exits early
-       const nodes = [].slice.call(document.querySelectorAll('.dynamic')).reverse();
-       nodes.forEach(node => { node.remove(); });
-
-
-       let last = document.getElementById("last");
-       let Chamber = document.getElementById("chamber");
-
-       let finalWidth = edgeWidth; //starts at 75 becqause thats the width of the left side in case only 1 hole is wanted
-       for(let i = 0; i < numChambers;i++) {
-
-          // make a chamber
-          let newChamber = Chamber.cloneNode(true);
-          //newChamber.removeAttribute("id","chamber")
-          let width = edgeWidth + holeWidth + (i* holeWidth); //75 for the left side, 50 for the static center
-          newChamber.setAttribute("x", width);
-          newChamber.setAttribute("class", "dynamic"); //set the class as dynamic so theyre easy to remove
-
-          // append the new rectangle to the svg
-          group.appendChild(newChamber);
-          finalWidth = width;
-          console.log(i)
+        numChambers -= 2; //substrace the left and right edges
+        const parent = document.getElementById("comb");
+        const last = document.getElementById("last");
+        for (let x = 0; x < numChambers; x++) {
+          var centerComb = document.createElement('div');
+          centerComb.setAttribute("class", "fixed");
+          centerComb.setAttribute("style","background-image: url('images/line-drawings/CenterComb.svg')");
+          //<div class="fixed" style="background-image: url('images/line-drawings/CenterComb.svg');"></div>
+          parent.insertBefore(centerComb, last)
         }
+      }
 
-        finalWidth += holeWidth; //add the width of the last
-        last.setAttribute("x", finalWidth);
-        finalWidth += edgeWidth; //add the right side
-        //set the svg width and viewBox
-        svg.setAttribute("width", finalWidth);
-        svg.setAttribute("viewBox", "0 0 " + finalWidth + " 200");
-
+      function sizeCover(numChambers,elementId) {
+        const center = document.getElementById(elementId);
+        center.setAttribute(`style`,`width:${numChambers*47}px;background-image: url('images/line-drawings/TopCoverCenter.svg')`);
       }
 
       function renderHarp(numChambers) {
+        sizeCover(numChambers,"top-cover-center");
         createBlowReedplate("mySVGtop-p", numChambers);
         createReedplateFace("mySVGtop", numChambers);
         renderComb(numChambers);
         createReedplateFace("mySVGbtm", numChambers);
         createDrawReedplate("mySVGbtm-p", numChambers);
+        sizeCover(numChambers,"bottom-cover-center");
       }
 
       renderHarp(numChambers);
