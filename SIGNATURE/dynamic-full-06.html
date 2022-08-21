@@ -115,7 +115,7 @@
       <div class="col"></div>  <!-- centers the comb -->
        <div class="col">
 
-          <div class="row flex-nowrap" id="top-cover">
+          <div class="row flex-nowrap justify-content-center" id="top-cover">
                <div class="top-cover" style="background-image: url('images/line-drawings/TopCoverLeft.svg');"></div>
                <div id="top-cover-center"></div>
                <div class="top-cover" style="background-image: url('images/line-drawings/TopCoverRight.svg');"></div>
@@ -148,15 +148,16 @@
       <div class="col"></div>  <!-- centers the comb -->
        <div class="col">
 
-         <div class="row flex-nowrap" id="comb">
-           <div class="edge" style="background-image: url('images/line-drawings/LeftComb.svg');"></div>
-           <!-- CENTERS ADDED DYNAMICALLY -->
-           <div class="edge" id="last" style="background-image: url('images/line-drawings/RightComb.svg');"></div>
+         <div class="row flex-nowrap justify-content-center" id="comb">
+
+             <div class="edge" style="background-image: url('images/line-drawings/LeftComb.svg');"></div>
+             <!-- CENTERS ADDED DYNAMICALLY -->
+             <div class="edge" id="last" style="background-image: url('images/line-drawings/RightComb.svg');"></div>
          </div> <!-- end of row -->
 
-       </div> <!-- end of comb column -->
+        </div> <!-- end of comb column -->
        <div class="col"></div> <!-- centers the comb -->
-       </div>  <!-- end of main comb row -->
+      </div>  <!-- end of main comb row -->
 
 
       <!-- REEDPLATE FRONT -->
@@ -180,7 +181,7 @@
       <div class="row">
         <div class="col"></div>  <!-- centers the comb -->
          <div class="col">
-            <div class="row flex-nowrap" id="cover">
+            <div class="row flex-nowrap justify-content-center" id="cover">
                    <div class="bottom-cover" style="background-image: url('images/line-drawings/BottomCoverLeft.svg');"></div>
                    <div id="bottom-cover-center"></div>
                    <div class="bottom-cover" style="background-image: url('images/line-drawings/BottomCoverRight.svg');"></div>
@@ -452,8 +453,9 @@
       }
 
       function sizeCover(numChambers,elementId) {
+        numChambers -= 2; //compensate for left and right homes
         const center = document.getElementById(elementId);
-        center.setAttribute(`style`,`width:${numChambers*47}px;background-image: url('images/line-drawings/TopCoverCenter.svg')`);
+        center.setAttribute(`style`,`width:${numChambers*59}px;background-image: url('images/line-drawings/TopCoverCenter.svg')`);
       }
 
       function renderHarp(numChambers) {
