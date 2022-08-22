@@ -1,16 +1,16 @@
 
     .harp-position {
-      margin-top:420px;
+      margin-top:340px;
       animation: harpslide 2s 1s forwards;
     }
 
-    .fixed {
+    .ldfixed {
       width: 59px;
       height: 55px;
       animation: fadeout 2s 1s forwards;
     }
 
-    .edge {
+    .ldedge {
       width: 175px;
       height: 55px;
       animation: fadeout 2s 1s forwards;
@@ -83,10 +83,10 @@
 
     @keyframes harpslide {
       0%{
-        margin-top:300px;
+        margin-top:220px;
       }
       100% {
-        margin-top:300px;
+        margin-top:220px;
       }
     }
 

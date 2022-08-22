@@ -294,7 +294,7 @@ function renderComb(numChambers) {
   const last = document.getElementById("last");
   for (let x = 0; x < numChambers; x++) {
     var centerComb = document.createElement('div');
-    centerComb.setAttribute("class", "fixed");
+    centerComb.setAttribute("class", "ldfixed");
     centerComb.setAttribute("style","background-image: url('images/line-drawings/CenterComb.svg')");
     //<div class="fixed" style="background-image: url('images/line-drawings/CenterComb.svg');"></div>
     parent.insertBefore(centerComb, last)
