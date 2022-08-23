@@ -10,93 +10,62 @@
 
 </head>
 <body>
-
   <div class="container-fluid harp-position">
-
     <div class="row">
-      <div class="col"></div>  <!-- centers the comb -->
+
+       <div class="col">
+       </div>  <!-- centers the comb -->
+
        <div class="col">
 
+          <!-- TOP COVER -->
           <div class="row flex-nowrap justify-content-center" id="top-cover">
                <div class="top-cover" style="background-image: url('images/line-drawings/TopCoverLeft.svg');"></div>
                <div class="top-cover-center" id="top-cover-center"></div>
                <div class="top-cover" style="background-image: url('images/line-drawings/TopCoverRight.svg');"></div>
           </div>
 
-      </div> <!-- end of comb column -->
-    <div class="col"></div> <!-- centers the comb -->
-  </div>  <!-- end of main comb row -->
-
-    <!-- REEDPLATE TOP PERSPECTIVE -->
-    <div class="row">
-       <div class="col-12">
-          <div class="row pers"> <!--  style="margin-left:65px;" -->
+          <!-- REEDPLATE TOP PERSPECTIVE -->
+          <div class="row pers">
             <svg id="mySVGtop-p"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
           </div>
-      </div>
-    </div>
 
-    <!-- REEDPLATE FRONT -->
-    <div class="row">
-       <div class="col-12">
+          <!-- REEDPLATE FRONT -->
           <div class="row pers-front" style="height:10px">
                 <svg id="mySVGtop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
           </div>
-      </div>
-    </div>
 
-
-    <div class="row">
-      <div class="col"></div>  <!-- centers the comb -->
-       <div class="col">
-
+         <!-- COMB -->
          <div class="row flex-nowrap justify-content-center" id="comb">
-
              <div class="ldedge" style="background-image: url('images/line-drawings/LeftComb.svg');"></div>
              <!-- CENTERS ADDED DYNAMICALLY -->
              <div class="ldedge" id="last" style="background-image: url('images/line-drawings/RightComb.svg');"></div>
          </div> <!-- end of row -->
 
-        </div> <!-- end of comb column -->
-       <div class="col"></div> <!-- centers the comb -->
-      </div>  <!-- end of main comb row -->
+          <!-- REEDPLATE FRONT -->
+          <div class="row pers_neg-front" style="height:10px">
+                <svg id='mySVGbtm'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+          </div>
 
-
-      <!-- REEDPLATE FRONT -->
-      <div class="row">
-         <div class="col-12">
-            <div class="row pers_neg-front" style="height:10px">
-                  <svg id='mySVGbtm'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
-            </div>
-        </div>
-      </div>
-
-      <!-- REEDPLATE BOTTOM PERSPECTIVE -->
-      <div class="row ">
-         <div class="col-12">
+          <!-- REEDPLATE BOTTOM PERSPECTIVE -->
           <div class="row pers_neg">
             <svg id='mySVGbtm-p'  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'></svg>
           </div>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col"></div>  <!-- centers the comb -->
-         <div class="col">
-            <div class="row flex-nowrap justify-content-center" id="cover">
-                   <div class="bottom-cover" style="background-image: url('images/line-drawings/BottomCoverLeft.svg');"></div>
-                   <div class="bottom-cover-center" id="bottom-cover-center"></div>
-                   <div class="bottom-cover" style="background-image: url('images/line-drawings/BottomCoverRight.svg');"></div>
-            </div>
-          </div> <!-- end of comb column -->
-        <div class="col"></div> <!-- centers the comb -->
-      </div>  <!-- end of main comb row -->
+            <!-- BOTTOM COVER -->
+          <div class="row flex-nowrap justify-content-center" id="cover">
+                 <div class="bottom-cover" style="background-image: url('images/line-drawings/BottomCoverLeft.svg');"></div>
+                 <div class="bottom-cover-center" id="bottom-cover-center"></div>
+                 <div class="bottom-cover" style="background-image: url('images/line-drawings/BottomCoverRight.svg');"></div>
+          </div>
 
-    </div> <!-- end of comb column -->
-    <div class="col"></div> <!-- centers the comb -->
-  </div>  <!-- end of main comb row -->
+       </div> <!-- end of col -->
 
-</div> <!-- end of ontainer -->
+       <div class="col">
+        </div> <!-- centers the comb -->
+
+      </div>  <!-- end of main row -->
+    </div> <!-- end of container -->
 
 
     <!-- https://stackoverflow.com/questions/21915059/setting-background-image-to-dynamic-svg-data -->

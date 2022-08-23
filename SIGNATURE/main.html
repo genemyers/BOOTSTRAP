@@ -60,96 +60,6 @@
           resize: none;
       }
 
-       /*
-      .topcover {
-        width:400px;
-        animation: expandtopcover 3s 1s forwards;
-      }
-      .top_perspective {
-        height:0px;
-        width:400px;
-        animation: top_rp_perspective 2s 1s forwards;
-      }
-      .topreedplate {
-        width:400px;
-        animation: expandtopreedplate 3s 1s forwards;
-      }
-      .comb {
-        width:400px;
-      }
-      .bottomreedplate {
-        width:400px;
-        animation: expandbottomreedplate 3s 1s forwards;
-      }
-      .bottom_perspective {
-        height:0px;
-        width:300px;
-        animation: bottom_rp_perspective 2s 1s forwards;
-      }
-      .bottomcover {
-        width:400px;
-        animation: expandbottomcover 3s 1s forwards;
-      }
-      @keyframes expandtopcover {
-        from{
-          transform: translateY(0);
-        }
-        to {
-          transform: translateY(-2200px);
-        }
-      }
-      @keyframes top_rp_perspective {
-        from{
-          height: 90px;
-          width: 374px;
-          perspective-origin: center;
-          transform: translateY(40px) perspective(3000px) rotateX(90deg);
-        }
-        to {
-          height: 102px;
-          width: 400px;
-          perspective-origin: center;
-          transform: translateY(-17px) perspective(300px) rotateX(30deg);
-        }
-      }
-      @keyframes expandtopreedplate {
-        from{
-          transform: translateY(0);
-        }
-        to {
-          transform: translateY(-20px);
-        }
-      }
-      @keyframes expandbottomcover {
-        from{
-          transform: translateY(0);
-        }
-        to {
-          transform: translateY(2200px);
-        }
-      }
-      @keyframes expandbottomreedplate {
-        from{
-          transform: translateY(0);
-        }
-        to {
-          transform: translateY(20px);
-        }
-      }
-      @keyframes bottom_rp_perspective {
-        from{
-          height:90px;
-          width:375px;
-          transform:  translateY(-40px) perspective(300px) rotateX(-90deg);
-        }
-        to {
-          height:102px;
-          width:400px;
-          transform: translateY(17px) perspective(300px) rotateX(-30deg);
-        }
-      }
-      */
-
     </style>
   </head>
 
@@ -1042,113 +952,61 @@
     <div class="hidden" id="resultsscreen">
       <div class="container-fluid harp-position">
         <div class="harpscroll">
-
-
-        <!--
-        <div class="row">
-          <div class="col-6 border">.col-6</div>
-          <div class="col-6 border">Results</div> -->
-
-          <!-- <div class="col-12">
-          <center style="margin-top: 12%;">
-            <div style="font-size:0"><img class='topcover' src="images/harpparts/topcover.svg"></div>
-            <div style="font-size:0" ><img class='top_perspective' src="images/harpparts/blow.svg"></div>
-            <div style="font-size:0"><img class='topreedplate' src="images/harpparts/reedplate.svg"></div>
-            <div style="font-size:0"><img class='comb' src="images/harpparts/comb.svg"></div>
-            <div style="font-size:0"><img class='bottomreedplate' src="images/harpparts/reedplate.svg"></div>
-            <div style="font-size:0" ><img class='bottom_perspective' src="images/harpparts/draw.svg"></div>
-            <div style="font-size:0"><img class='bottomcover' src="images/harpparts/bottomcover.svg"></div>
-          </center>
-          </div> -->
-
           <div class="row">
-            <div class="col"></div>  <!-- centers the comb -->
-             <div class="col">
 
-                <div class="row flex-nowrap justify-content-center" id="top-cover">
-                     <div class="top-cover" style="background-image: url('images/line-drawings/TopCoverLeft.svg');"></div>
-                     <div class="top-cover-center" id="top-cover-center"></div>
-                     <div class="top-cover" style="background-image: url('images/line-drawings/TopCoverRight.svg');"></div>
-                </div>
+            <div class="col">
+            </div>  <!-- centers the comb -->
+            <div class="col">
 
-            </div> <!-- end of comb column -->
-          <div class="col"></div> <!-- centers the comb -->
-        </div>  <!-- end of main comb row -->
+               <!-- TOP COVER -->
+               <div class="row flex-nowrap justify-content-center" id="top-cover">
+                    <div class="top-cover" style="background-image: url('images/line-drawings/TopCoverLeft.svg');"></div>
+                    <div class="top-cover-center" id="top-cover-center"></div>
+                    <div class="top-cover" style="background-image: url('images/line-drawings/TopCoverRight.svg');"></div>
+               </div>
 
-          <!-- REEDPLATE TOP PERSPECTIVE -->
-          <div class="row">
-             <div class="col-12">
-                <div class="row pers"> <!--  style="margin-left:65px;" -->
-                  <svg id="mySVGtop-p"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
-                </div>
-            </div>
-          </div>
+               <!-- REEDPLATE TOP PERSPECTIVE -->
+               <div class="row pers">
+                 <svg id="mySVGtop-p"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+               </div>
 
-          <!-- REEDPLATE FRONT -->
-          <div class="row">
-             <div class="col-12">
-                <div class="row pers-front" style="height:10px">
-                      <svg id="mySVGtop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
-                </div>
-            </div>
-          </div>
+               <!-- REEDPLATE FRONT -->
+               <div class="row pers-front" style="height:10px">
+                     <svg id="mySVGtop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+               </div>
 
+              <!-- COMB -->
+              <div class="row flex-nowrap justify-content-center" id="comb">
+                  <div class="ldedge" style="background-image: url('images/line-drawings/LeftComb.svg');"></div>
+                  <!-- CENTERS ADDED DYNAMICALLY -->
+                  <div class="ldedge" id="last" style="background-image: url('images/line-drawings/RightComb.svg');"></div>
+              </div> <!-- end of row -->
 
-          <div class="row">
-            <div class="col"></div>  <!-- centers the comb -->
-             <div class="col">
+               <!-- REEDPLATE FRONT -->
+               <div class="row pers_neg-front" style="height:10px">
+                     <svg id='mySVGbtm'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+               </div>
 
-               <div class="row flex-nowrap justify-content-center" id="comb">
+               <!-- REEDPLATE BOTTOM PERSPECTIVE -->
+               <div class="row pers_neg">
+                 <svg id='mySVGbtm-p'  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'></svg>
+               </div>
 
-                   <div class="ldedge" style="background-image: url('images/line-drawings/LeftComb.svg');"></div>
-                   <!-- CENTERS ADDED DYNAMICALLY -->
-                   <div class="ldedge" id="last" style="background-image: url('images/line-drawings/RightComb.svg');"></div>
-               </div> <!-- end of row -->
+                 <!-- BOTTOM COVER -->
+               <div class="row flex-nowrap justify-content-center" id="cover">
+                      <div class="bottom-cover" style="background-image: url('images/line-drawings/BottomCoverLeft.svg');"></div>
+                      <div class="bottom-cover-center" id="bottom-cover-center"></div>
+                      <div class="bottom-cover" style="background-image: url('images/line-drawings/BottomCoverRight.svg');"></div>
+               </div>
 
-              </div> <!-- end of comb column -->
-             <div class="col"></div> <!-- centers the comb -->
-            </div>  <!-- end of main comb row -->
+            </div> <!-- end of col -->
+            <div class="col">
+             </div> <!-- centers the comb -->
 
-
-            <!-- REEDPLATE FRONT -->
-            <div class="row">
-               <div class="col-12">
-                  <div class="row pers_neg-front" style="height:10px">
-                        <svg id='mySVGbtm'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
-                  </div>
-              </div>
-            </div>
-
-            <!-- REEDPLATE BOTTOM PERSPECTIVE -->
-            <div class="row ">
-               <div class="col-12">
-                <div class="row pers_neg">
-                  <svg id='mySVGbtm-p'  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'></svg>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col"></div>  <!-- centers the comb -->
-               <div class="col">
-                  <div class="row flex-nowrap justify-content-center" id="cover">
-                         <div class="bottom-cover" style="background-image: url('images/line-drawings/BottomCoverLeft.svg');"></div>
-                         <div class="bottom-cover-center" id="bottom-cover-center"></div>
-                         <div class="bottom-cover" style="background-image: url('images/line-drawings/BottomCoverRight.svg');"></div>
-                  </div>
-                </div> <!-- end of comb column -->
-              <div class="col"></div> <!-- centers the comb -->
-            </div>  <!-- end of main comb row -->
-
-          </div> <!-- end of comb column -->
-          <div class="col"></div> <!-- centers the comb -->
-        </div>  <!-- end of main comb row -->
-
-
-        </div> <!-- end of row -->
-      </div> <!-- end of harpscroll -->
-    </div> <!-- end of container -->
-  </div>  <!-- end of hidden -->
+          </div> <!-- end of main row -->
+        </div> <!-- end of harpscroll -->
+      </div> <!-- end of container -->
+    </div>  <!-- end of hidden -->
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
