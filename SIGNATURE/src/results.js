@@ -13,20 +13,23 @@ const chamberWidth = 47;
 //const holeWidth = 59;
 const edgeWidth = 115;
 
-const CHAMBER_WIDTH = 56;
+const CHAMBER_WIDTH = 59;
+const EDGE_WIDTH = 59;
 
 function createReedplateFace(svg, numHoles) {
 
 
-    let fDiv = document.getElementById(svg + "_front");
+    let fDiv = document.getElementById(svg + "_div");
 
     let rp = document.getElementById(svg);
     //width="820" height="10" viewBox="0 0 820 10"
-    let width = (edgeWidth * 2) + (numHoles * 59);   //230 + 590
+    //let width = (edgeWidth * 2) + (numHoles * (CHAMBER_WIDTH+3)) - 3;   //230 + 590
+    let width = (edgeWidth * 2) + (numHoles * (CHAMBER_WIDTH)) + 26;   //230 + 590
+
     //sets div width
     fDiv.setAttribute("style", "height:10px;width:" + width + "px;");
 
-    console.log(`Blow reedplate face width: ${width}`)
+    console.log(`Reedplate ${svg} width: ${width}`)
 
     rp.setAttribute("width", width);
     rp.setAttribute("height", "10");
@@ -55,10 +58,18 @@ function createReedplate(svg, numHoles, arrTune,isDraw) {
     //TODO
     //need to assert that the size of the arrTune == numHoles
 
+    let pDiv = document.getElementById(svg + "_div");
+
     // create the svg element
     const svg1 = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
     let width = ((edge * 2) + ( numHoles * chamberWidth) - chamberWidth + reedBaseSq);
+    let widthDiv = (edgeWidth * 2) + (numHoles * (CHAMBER_WIDTH)) + 52;
+
+    console.log(`Reedplate ${svg} width: ${width}`)
+
+     //sets div width
+     pDiv.setAttribute("style", "width:" + widthDiv + "px;");
 
     // set width and height?
     //set viewBox

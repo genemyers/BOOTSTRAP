@@ -1,11 +1,11 @@
 
     .harp-position {
-      margin-top:340px;
+      margin-top:450px;
       animation: harpslide 2s 1s forwards;
     }
 
     .ldfixed {
-      width: 56px; 
+      width: 59px; 
       height: 55px;
       animation: fadeout 2s 1s forwards;
     }
@@ -43,6 +43,8 @@
     }
 
     .pers-front {
+      display: flex;
+      margin: auto;
       animation: top_rpf_perspective 2s 1s forwards;
     }
 
@@ -53,6 +55,7 @@
     }
 
     .pers_neg-front {
+      margin: auto;
       animation: bottom_rpf_perspective 2s 1s forwards;
     }
 
@@ -67,10 +70,10 @@
 
     @keyframes harpslide {
       0%{
-        margin-top:220px;
+        margin-top:330px;
       }
       100% {
-        margin-top:220px;
+        margin-top:330px;
       }
     }
 
@@ -85,7 +88,7 @@
         height: 120px;
         transform-origin: bottom;
         perspective-origin: bottom;
-        transform: translateY(-24px) perspective(300px) rotateX(-330deg) scale(0.95);
+        transform: translateY(-25px) perspective(300px) rotateX(-330deg) scale(0.95);
       }
     }
 
@@ -113,7 +116,7 @@
         height: 120px;
         transform-origin: top;
         perspective-origin: top;
-        transform: translateY(-2px) perspective(300px) rotateX(330deg);
+        transform: translateY(-1px) perspective(300px) rotateX(330deg) scale(0.999);
       }
     }
 

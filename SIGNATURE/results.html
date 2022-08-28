@@ -7,11 +7,17 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link href="./src/results.css" rel="stylesheet" />
-
+    <style>
+      .harpscroll {
+        white-space: nowrap;
+        overflow-x: auto;
+      }
+    </style>
 </head>
 <body>
   <div class="container-fluid harp-position">
-    <div class="row">
+    <div class="harpscroll">
+    <div class="row flex-nowrap">
 
        <div class="col p-0">
        </div>  <!-- centers the comb -->
@@ -27,12 +33,12 @@
           
 
           <!-- REEDPLATE TOP PERSPECTIVE -->
-          <div class="row pers">
+          <div id="mySVGtop-p_div" class="row pers">
             <svg id="mySVGtop-p"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
           </div>
 
           <!-- REEDPLATE FRONT  the div id must match the svg id, with "_front" appended -->
-          <div id="mySVGtop_front" class="row pers-front" >
+          <div id="mySVGtop_div" class="row pers-front justify-content-center" >
                 <svg id="mySVGtop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
           </div>
 
@@ -43,12 +49,12 @@
          </div> <!--  end of row -->
 
           <!-- REEDPLATE FRONT the div id must match the svg id, with "_front" appended -->
-          <div id="mySVGbtm_front" class="row pers_neg-front" >
+          <div id="mySVGbtm_div" class="row pers_neg-front justify-content-center" >
                 <svg id='mySVGbtm'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
           </div>
 
           <!-- REEDPLATE BOTTOM PERSPECTIVE -->
-          <div class="row pers_neg">
+          <div id="mySVGbtm-p_div" class="row pers_neg">
             <svg id='mySVGbtm-p'  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'></svg>
           </div>
 
@@ -60,12 +66,13 @@
           </div>
          
 
-       </div> <!-- end of col -->
+        </div> <!-- end of col -->
 
-       <div class="col p-0">
+        <div class="col p-0">
         </div> <!-- centers the comb -->
 
       </div>  <!-- end of main row -->
+    </div><!-- en dof harpscroll -->
     </div> <!-- end of container -->
 
     <!-- https://stackoverflow.com/questions/21915059/setting-background-image-to-dynamic-svg-data -->
@@ -76,12 +83,13 @@
     <script>
 
 
+      let tuneArray = [[-1,1,0,0,1,1,-1,0,-1,1,0,1],[1,-1,0,0,1,1,1,-1,1,0,1,1]]
 
-      let tuneArray = [[0,1,0,-1,0,0,-1,-1,1,1],[0,-1,-1,1,0,0,0,-1,0,0]]
-
-      //let tuneArray = [[-1,1,0,0,1,1,-1,0,-1,1,0,1],[1,-1,0,0,1,1,1,-1,1,0,1,1]]
+      //let tuneArray = [[0,1,0,-1,0,0,-1,-1,1,1],[0,-1,-1,1,0,0,0,-1,0,0]]
 
       //let tuneArray = [[-1,1,0,0,1,1],[1,-1,1,0,1,1]]
+
+      //let tuneArray = [[1,0,-1],[-1,1,0]]
 
       renderHarp(tuneArray);
     </script>
