@@ -10,20 +10,27 @@ const edge = 110;
 const chamberWidth = 47;
 
 //comb
-const holeWidth = 59;
+//const holeWidth = 59;
 const edgeWidth = 115;
 
+const CHAMBER_WIDTH = 56;
+
 function createReedplateFace(svg, numHoles) {
+
+
+    let fDiv = document.getElementById(svg + "_front");
 
     let rp = document.getElementById(svg);
     //width="820" height="10" viewBox="0 0 820 10"
     let width = (edgeWidth * 2) + (numHoles * 59);   //230 + 590
+    //sets div width
+    fDiv.setAttribute("style", "height:10px;width:" + width + "px;");
 
     console.log(`Blow reedplate face width: ${width}`)
 
     rp.setAttribute("width", width);
     rp.setAttribute("height", "10");
-    rp.setAttribute("viewBox", "0 0 " + width + " 10");
+    rp.setAttribute("viewBox", "0 0 " + width  + " 10");
 
     const newRect = document.createElementNS(
       "http://www.w3.org/2000/svg",
@@ -32,7 +39,7 @@ function createReedplateFace(svg, numHoles) {
 
     newRect.setAttribute("x", "0");
     newRect.setAttribute("y", "0");
-    newRect.setAttribute("width", width );
+    newRect.setAttribute("width", width);
     newRect.setAttribute("height", "10");
     newRect.setAttribute("stroke", "black");
     newRect.setAttribute("fill", "transparent");
@@ -207,7 +214,7 @@ function renderComb(numChambers) {
 function sizeCover(numChambers,elementId) {
   numChambers -= 2; //compensate for left and right homes
   const center = document.getElementById(elementId);
-  center.setAttribute(`style`,`width:${numChambers*59}px;background-image: url('images/line-drawings/TopCoverCenter.svg')`);
+  center.setAttribute(`style`,`width:${numChambers*CHAMBER_WIDTH}px;background-image: url('images/line-drawings/TopCoverCenter.svg')`);
 }
 
 function renderHarp(tuneArray) {
@@ -225,4 +232,4 @@ function renderHarp(tuneArray) {
 
 
 
-module.exports = renderHarp;
+//module.exports = renderHarp;

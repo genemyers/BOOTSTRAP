@@ -13,37 +13,37 @@
   <div class="container-fluid harp-position">
     <div class="row">
 
-       <div class="col">
+       <div class="col p-0">
        </div>  <!-- centers the comb -->
 
-       <div class="col">
+       <div class="col p-0">
 
           <!-- TOP COVER -->
-          <div class="row flex-nowrap justify-content-center" id="top-cover">
+          <div class="row flex-nowrap justify-content-center" id="top-cover"> 
                <div class="top-cover" style="background-image: url('images/line-drawings/TopCoverLeft.svg');"></div>
                <div class="top-cover-center" id="top-cover-center"></div>
-               <div class="top-cover" style="background-image: url('images/line-drawings/TopCoverRight.svg');"></div>
+               <div class="top-cover" style="background-image: url('images/line-drawings/TopCoverRight.svg');"></div> 
           </div>
+          
 
           <!-- REEDPLATE TOP PERSPECTIVE -->
           <div class="row pers">
             <svg id="mySVGtop-p"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
           </div>
 
-          <!-- REEDPLATE FRONT -->
-          <div class="row pers-front" style="height:10px">
+          <!-- REEDPLATE FRONT  the div id must match the svg id, with "_front" appended -->
+          <div id="mySVGtop_front" class="row pers-front" >
                 <svg id="mySVGtop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
           </div>
 
          <!-- COMB -->
          <div class="row flex-nowrap justify-content-center" id="comb">
              <div class="ldedge" style="background-image: url('images/line-drawings/LeftComb.svg');"></div>
-             <!-- CENTERS ADDED DYNAMICALLY -->
              <div class="ldedge" id="last" style="background-image: url('images/line-drawings/RightComb.svg');"></div>
-         </div> <!-- end of row -->
+         </div> <!--  end of row -->
 
-          <!-- REEDPLATE FRONT -->
-          <div class="row pers_neg-front" style="height:10px">
+          <!-- REEDPLATE FRONT the div id must match the svg id, with "_front" appended -->
+          <div id="mySVGbtm_front" class="row pers_neg-front" >
                 <svg id='mySVGbtm'xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
           </div>
 
@@ -52,16 +52,17 @@
             <svg id='mySVGbtm-p'  xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'></svg>
           </div>
 
-            <!-- BOTTOM COVER -->
+            <!-- BOTTOM COVER  -->
           <div class="row flex-nowrap justify-content-center" id="cover">
                  <div class="bottom-cover" style="background-image: url('images/line-drawings/BottomCoverLeft.svg');"></div>
                  <div class="bottom-cover-center" id="bottom-cover-center"></div>
                  <div class="bottom-cover" style="background-image: url('images/line-drawings/BottomCoverRight.svg');"></div>
           </div>
+         
 
        </div> <!-- end of col -->
 
-       <div class="col">
+       <div class="col p-0">
         </div> <!-- centers the comb -->
 
       </div>  <!-- end of main row -->

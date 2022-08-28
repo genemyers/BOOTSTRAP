@@ -5,13 +5,13 @@
     }
 
     .ldfixed {
-      width: 59px;
+      width: 56px; 
       height: 55px;
       animation: fadeout 2s 1s forwards;
     }
 
     .ldedge {
-      width: 175px;
+      width: 175px;  
       height: 55px;
       animation: fadeout 2s 1s forwards;
     }
@@ -56,22 +56,6 @@
       animation: bottom_rpf_perspective 2s 1s forwards;
     }
 
-
-    @keyframes top_rp_perspective {
-      0%{
-        height: 120px;
-        transform-origin: bottom;
-        perspective-origin: bottom;
-        transform: perspective(300px) rotateX(90deg) scale(0.90);
-      }
-      100% {
-        height: 120px;
-        transform-origin: bottom;
-        perspective-origin: bottom;
-        transform: translateY(-26px) perspective(300px) rotateX(-330deg) scale(0.95);
-      }
-    }
-
     @keyframes fadeout {
       0%{
         opacity: 1;
@@ -90,7 +74,20 @@
       }
     }
 
-
+    @keyframes top_rp_perspective {
+      0%{
+        height: 120px;
+        transform-origin: bottom;
+        perspective-origin: bottom;
+        transform: perspective(300px) rotateX(90deg) scale(0.90);
+      }
+      100% {
+        height: 120px;
+        transform-origin: bottom;
+        perspective-origin: bottom;
+        transform: translateY(-24px) perspective(300px) rotateX(-330deg) scale(0.95);
+      }
+    }
 
     @keyframes top_rpf_perspective {
       0%{
@@ -116,7 +113,7 @@
         height: 120px;
         transform-origin: top;
         perspective-origin: top;
-        transform: perspective(300px) rotateX(330deg);
+        transform: translateY(-2px) perspective(300px) rotateX(330deg);
       }
     }
 
