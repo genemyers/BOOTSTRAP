@@ -1,6 +1,6 @@
 
     .harp-position {
-      margin-top:450px;
+      margin-top:195px;
       animation: harpslide 2s 1s forwards;
     }
 
@@ -70,10 +70,10 @@
 
     @keyframes harpslide {
       0%{
-        margin-top:330px;
+        margin-top:75px;
       }
       100% {
-        margin-top:330px;
+        margin-top:75px;
       }
     }
 

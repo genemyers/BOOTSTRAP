@@ -954,8 +954,46 @@
 
 
     <div class="hidden" id="resultsscreen">
-      <div class="container-fluid harp-position">
-        <div class="harpscroll">
+      <div class="container-fluid">
+
+
+          <div class="row mt-5">
+            <div class="col-4 p-0"></div>  <!-- centers the comb -->
+ 
+            <div class="col-4 p-0" style="text-align: center;">
+
+              <span class="dropdown-toggle fs-4" data-bs-toggle="dropdown">Equal Temperament</span>
+              <div class="dropdown-menu dropdown-menu-end">
+                <span class="dropdown-item">My Seydel Set- Richter 10-Hole Diatonic</span>
+                <span  class="dropdown-item">My Hohner 364 Set- Richter 12-Hole Diatonic</span>
+              </div>
+              <br/>
+              <span class="dropdown-toggle fs-4" data-bs-toggle="dropdown">442 Hz</span>
+              <div class="dropdown-menu dropdown-menu-end">
+                <span class="dropdown-item">My Seydel Set- Richter 10-Hole Diatonic</span>
+                <span  class="dropdown-item">My Hohner 364 Set- Richter 12-Hole Diatonic</span>
+              </div>
+            </div>
+
+            <div class="col-4 p-0"></div>  <!-- centers the comb -->
+
+          </div>
+        
+          
+          <div class="row mt-5">   
+            <div class="col-4 p-0"></div>
+            <div class="col-4 p-0" style="text-align: center;">
+              <div class="btn-group">
+                <button type="button" class="btn rounded-pill shadow btn-outline-dark" onclick="alert('Reset')"><span class="fa fa-refresh pe-2"></span>Skip</button>
+                <button type="button" class="btn rounded-pill shadow btn-outline-dark ms-3" id="results" onclick="showPage(this)"><span class="fa fa-play pe-2"></span>Start</button>
+              </div>
+            </div>
+            <div class="col-4 p-0"></div>
+          </div>
+        
+
+
+        <div class="harpscroll harp-position">
         <div class="row flex-nowrap">
     
            <div class="col p-0">

@@ -12,6 +12,23 @@
         white-space: nowrap;
         overflow-x: auto;
       }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 2px;
+      }
+      /*
+      tr:nth-child(odd) {
+        background-color: #dddddd;
+      }
+      */
     </style>
 </head>
 <body>
@@ -73,6 +90,57 @@
 
       </div>  <!-- end of main row -->
     </div><!-- en dof harpscroll -->
+    <div class="row mt-5">
+      <div class="col p-0"></div> <!-- centers the table -->
+
+      <div class="col p-0">
+      <table>
+        <thead>
+          <td>&nbsp;</td>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+          <th>10</th>
+        </thead>
+        <tr>
+          <th>Blow</th>
+          <td>8</td>
+          <td>-15</td>
+          <td>8</td>
+          <td>-15</td>
+          <td>8</td>
+          <td>-15</td>
+          <td>8</td>
+          <td>-15</td>
+          <td>8</td>
+          <td>-15</td>
+        </tr>
+        <tr>
+          <th>Draw</th>
+          <td>8</td>
+          <td>-15</td>
+          <td>8</td>
+          <td>-15</td>
+          <td>8</td>
+          <td>-15</td>
+          <td>8</td>
+          <td>-15</td>
+          <td>8</td>
+          <td>-15</td>
+        </tr>
+      </table>
+      </div><!-- end of table col -->
+
+      <div class="col p-0"></div> <!-- centers the table -->
+
+    </div><!-- end of table row-->
+
     </div> <!-- end of container -->
 
     <!-- https://stackoverflow.com/questions/21915059/setting-background-image-to-dynamic-svg-data -->
